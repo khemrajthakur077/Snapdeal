@@ -1,0 +1,1185 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snapdeal SOP Portal | E-commerce Knowledge Hub</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f4f6fa;
+    color: #263238;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(120deg, #e40046, #a90035);
+    color: white;
+    padding: 22px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    box-shadow: 0 4px 15px rgba(228,0,70,0.2);
+}
+
+header h1 {
+    font-size: 25px;
+    letter-spacing: 1px;
+}
+
+header p {
+    font-size: 13px;
+    margin-top: 6px;
+    opacity: 0.9;
+}
+
+.header-right {
+    background: rgba(255,255,255,0.15);
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/* SEARCH */
+.search-box {
+    padding: 20px;
+    text-align: center;
+}
+
+.search-box input {
+    width: 80%;
+    max-width: 650px;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.search-box input:focus {
+    border-color: #e40046;
+    box-shadow: 0 0 0 3px rgba(228,0,70,0.1);
+}
+
+/* LAYOUT */
+.container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    align-items: flex-start;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 270px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    height: fit-content;
+    flex-shrink: 0;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.04);
+}
+
+.sidebar h3 {
+    margin-bottom: 15px;
+    color: #e40046;
+}
+
+/* CAMPAIGN LINKS */
+.campaign-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 8px;
+    border: none;
+    background: #f5f5f5;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.campaign-btn:hover,
+.campaign-btn.active {
+    background: #e40046;
+    color: white;
+    transform: translateX(4px);
+}
+
+/* OVS SUB CAMPAIGNS */
+.sub-campaigns {
+    padding-left: 13px;
+    margin-bottom: 10px;
+}
+
+.sub-campaigns a {
+    display: block;
+    width: 100%;
+    padding: 11px;
+    margin-bottom: 6px;
+    border-left: 3px solid #e40046;
+    background: #fff0f4;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #333;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.sub-campaigns a:hover {
+    background: #e40046;
+    color: white;
+    padding-left: 17px;
+}
+
+/* CONTENT */
+.content {
+    flex: 1;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    min-width: 0;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.04);
+}
+
+/* HERO SECTION */
+.hero {
+    background: linear-gradient(120deg, #fff0f4, #fff);
+    border: 1px solid #ffe0e9;
+    border-radius: 12px;
+    padding: 35px;
+    margin-bottom: 25px;
+    position: relative;
+    overflow: hidden;
+    animation: fadeUp 0.8s ease;
+}
+
+.hero::after {
+    content: "S";
+    position: absolute;
+    right: 35px;
+    top: -40px;
+    font-size: 230px;
+    font-weight: bold;
+    color: rgba(228,0,70,0.05);
+}
+
+.hero-tag {
+    display: inline-block;
+    background: #ffe0e9;
+    color: #e40046;
+    padding: 7px 13px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.hero h2 {
+    color: #e40046;
+    font-size: 30px;
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero p {
+    color: #555;
+    line-height: 1.8;
+    max-width: 750px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 11px 18px;
+    background: #e40046;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    position: relative;
+    z-index: 1;
+    transition: 0.3s;
+}
+
+.hero-btn:hover {
+    background: #b90039;
+    transform: translateY(-3px);
+}
+
+/* SECTION TITLE */
+.section-title {
+    color: #e40046;
+    font-size: 21px;
+    margin: 30px 0 15px;
+    padding-left: 12px;
+    border-left: 4px solid #e40046;
+}
+
+.section-description {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+/* INFO CARDS */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 18px 0;
+}
+
+.info-card {
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background: #fff;
+    transition: 0.35s;
+    animation: fadeUp 0.8s ease both;
+}
+
+.info-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 22px rgba(228,0,70,0.10);
+    border-color: #ffc4d5;
+}
+
+.info-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.info-card h3 {
+    color: #e40046;
+    font-size: 17px;
+    margin-bottom: 9px;
+}
+
+.info-card p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #666;
+}
+
+/* SNAPDEAL INTRO */
+.snapdeal-box {
+    background: #fff7f9;
+    border: 1px solid #ffd9e4;
+    border-radius: 12px;
+    padding: 23px;
+    margin: 20px 0;
+    animation: fadeUp 0.8s ease;
+}
+
+.snapdeal-box h3 {
+    color: #e40046;
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.snapdeal-box p {
+    color: #555;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+/* HIGHLIGHT */
+.highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.highlight {
+    background: #f8f8f8;
+    border-radius: 9px;
+    padding: 18px 12px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.highlight:hover {
+    background: #fff0f4;
+    transform: scale(1.04);
+}
+
+.highlight h3 {
+    color: #e40046;
+    font-size: 22px;
+    margin-bottom: 7px;
+}
+
+.highlight p {
+    font-size: 12px;
+    color: #666;
+}
+
+/* PROCESS */
+.process-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.process-step {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 9px;
+    padding: 17px;
+    text-align: center;
+    position: relative;
+    transition: 0.3s;
+}
+
+.process-step:hover {
+    border-color: #e40046;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(228,0,70,0.08);
+}
+
+.step-number {
+    width: 32px;
+    height: 32px;
+    background: #e40046;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+    font-weight: bold;
+}
+
+.process-step h4 {
+    font-size: 14px;
+    margin-bottom: 7px;
+    color: #333;
+}
+
+.process-step p {
+    font-size: 12px;
+    color: #777;
+    line-height: 1.6;
+}
+
+/* ORDER JOURNEY */
+.journey {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 20px;
+    background: #fafafa;
+    border-radius: 10px;
+    margin: 18px 0;
+}
+
+.journey-item {
+    background: #fff0f4;
+    color: #c90040;
+    border: 1px solid #ffd5e1;
+    padding: 12px 15px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.journey-item:hover {
+    background: #e40046;
+    color: white;
+    transform: scale(1.05);
+}
+
+.journey-arrow {
+    color: #e40046;
+    font-weight: bold;
+}
+
+/* CAMPAIGN EXPLANATION */
+.campaign-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 13px;
+    margin: 18px 0;
+}
+
+.campaign-info-card {
+    border-left: 4px solid #e40046;
+    background: #fafafa;
+    padding: 17px;
+    border-radius: 7px;
+    transition: 0.3s;
+}
+
+.campaign-info-card:hover {
+    background: #fff0f4;
+    transform: translateX(4px);
+}
+
+.campaign-info-card h4 {
+    color: #e40046;
+    margin-bottom: 8px;
+}
+
+.campaign-info-card p {
+    color: #666;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* NOTE */
+.note {
+    background: #fff8e7;
+    border-left: 4px solid #f0ad24;
+    padding: 15px;
+    border-radius: 6px;
+    margin: 20px 0;
+    color: #65501d;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* SOP CARDS */
+.sop-card {
+    border: 1px solid #eee;
+    padding: 18px;
+    margin: 12px 0;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.sop-card:hover {
+    border-color: #e40046;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.sop-card h3 {
+    margin-bottom: 7px;
+}
+
+.sop-card p {
+    color: #666;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.badge {
+    display: inline-block;
+    background: #ffe5ed;
+    color: #e40046;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.open-btn {
+    display: inline-block;
+    padding: 9px 15px;
+    background: #e40046;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.empty {
+    text-align: center;
+    color: #777;
+    padding: 30px;
+}
+
+/* FOOTER */
+footer {
+    background: #263238;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(228,0,70,0.15);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(228,0,70,0);
+    }
+}
+
+.hero-tag {
+    animation: pulse 2s infinite;
+}
+
+/* MOBILE */
+@media(max-width:900px) {
+    .highlight-grid,
+    .process-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width:768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero {
+        padding: 25px 20px;
+    }
+
+    .hero h2 {
+        font-size: 24px;
+    }
+
+    .info-grid,
+    .campaign-info {
+        grid-template-columns: 1fr;
+    }
+
+    .highlight-grid,
+    .process-list {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .content {
+        padding: 17px;
+    }
+}
+
+@media(max-width:450px) {
+    .highlight-grid,
+    .process-list {
+        grid-template-columns: 1fr;
+    }
+
+    .journey {
+        flex-direction: column;
+    }
+
+    .journey-arrow {
+        transform: rotate(90deg);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div>
+        <h1>SNAPDEAL SOP PORTAL</h1>
+        <p>Standard Operating Procedures | Knowledge Hub</p>
+    </div>
+
+    <div class="header-right">
+        Welcome to SOP Dashboard
+    </div>
+</header>
+
+<!-- SEARCH -->
+<div class="search-box">
+    <input type="text" id="searchInput"
+    placeholder="Search Campaign or SOP here..."
+    onkeyup="searchSOP()">
+</div>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <h3>CAMPAIGNS</h3>
+
+        <a href="index.html" class="campaign-btn active">
+            <span>Dashboard</span>
+            <span>↗</span>
+        </a>
+
+        <a href="ovs.html" class="campaign-btn">
+            <span>OVS (Order Verification System)</span>
+            <span>↗</span>
+        </a>
+
+        <div class="sub-campaigns">
+            <a href="bulk.html">A. Bulk</a>
+            <a href="duplicate.html">B. Duplicate</a>
+            <a href="address-verification.html">C. Address Verification</a>
+            <a href="rto-high.html">D. RTO High</a>
+        </div>
+
+        <a href="address-correction.html" class="campaign-btn">
+            <span>Address Correction</span>
+            <span>↗</span>
+        </a>
+
+        <a href="ndr.html" class="campaign-btn">
+            <span>NDR</span>
+            <span>↗</span>
+        </a>
+
+        <a href="npr.html" class="campaign-btn">
+            <span>NPR</span>
+            <span>↗</span>
+        </a>
+
+        <a href="basic-knowledge.html" class="campaign-btn">
+            <span>Basic Knowledge</span>
+            <span>↗</span>
+        </a>
+
+        <a href="tat-guidelines.html" class="campaign-btn">
+            <span>TAT Guidelines</span>
+            <span>↗</span>
+        </a>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <span class="hero-tag">WELCOME TO THE KNOWLEDGE HUB</span>
+
+            <h2>Understanding E-commerce & Snapdeal</h2>
+
+            <p>
+                Welcome to the Snapdeal SOP Knowledge Hub. This dashboard
+                introduces you to the world of e-commerce, how online
+                marketplaces work, how Snapdeal connects customers and
+                sellers, and how different teams help complete the
+                customer's shopping journey.
+            </p>
+
+            <a href="#ecommerce" class="hero-btn">
+                Explore E-commerce ↓
+            </a>
+
+        </section>
+
+        <!-- ECOMMERCE INTRO -->
+        <section id="ecommerce">
+
+            <h2 class="section-title">What is E-commerce?</h2>
+
+            <p class="section-description">
+                E-commerce means Electronic Commerce. It is the process
+                of buying and selling products or services through the
+                internet using websites, mobile applications and other
+                digital platforms.
+            </p>
+
+            <div class="info-grid">
+
+                <div class="info-card">
+                    <div class="info-icon">🛒</div>
+                    <h3>Online Shopping</h3>
+                    <p>
+                        Customers can search for products, compare prices,
+                        place orders and make payments using a website
+                        or mobile application.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">🏪</div>
+                    <h3>Online Marketplace</h3>
+                    <p>
+                        A marketplace connects multiple sellers with
+                        customers through a common online platform.
+                        Sellers list their products and customers
+                        purchase them.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">💳</div>
+                    <h3>Digital Payments</h3>
+                    <p>
+                        Customers may pay using supported payment
+                        methods such as UPI, cards, net banking or
+                        Cash on Delivery, depending on availability.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">🚚</div>
+                    <h3>Delivery & Logistics</h3>
+                    <p>
+                        After an order is placed and processed,
+                        logistics partners help transport the product
+                        from the seller to the customer.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- TYPES OF ECOMMERCE -->
+        <section>
+
+            <h2 class="section-title">Types of E-commerce</h2>
+
+            <p class="section-description">
+                E-commerce can be divided into different business
+                models depending on who is buying and who is selling.
+            </p>
+
+            <div class="info-grid">
+
+                <div class="info-card">
+                    <div class="info-icon">🏢</div>
+                    <h3>B2B – Business to Business</h3>
+                    <p>
+                        When one business sells products or services
+                        to another business.
+                        <br><br>
+                        Example: A wholesaler selling products to a retailer.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">🛍️</div>
+                    <h3>B2C – Business to Consumer</h3>
+                    <p>
+                        When a business sells products directly to
+                        individual customers.
+                        <br><br>
+                        Example: A customer purchasing a product
+                        from an online shopping platform.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">🤝</div>
+                    <h3>C2C – Consumer to Consumer</h3>
+                    <p>
+                        When one individual sells a product or service
+                        to another individual.
+                        <br><br>
+                        Example: Selling a used mobile phone to another person.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">👤</div>
+                    <h3>C2B – Consumer to Business</h3>
+                    <p>
+                        When an individual provides a product or service
+                        to a business.
+                        <br><br>
+                        Example: A photographer licensing photographs
+                        to a company.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- SNAPDEAL INTRO -->
+        <section>
+
+            <h2 class="section-title">About Snapdeal</h2>
+
+            <div class="snapdeal-box">
+
+                <h3>What is Snapdeal?</h3>
+
+                <p>
+                    Snapdeal is an Indian e-commerce marketplace that
+                    connects online shoppers with sellers. It focuses
+                    on value commerce, offering budget-friendly
+                    fashion, lifestyle and other products to customers
+                    across India.
+                    <br><br>
+                    Snapdeal was founded in 2010 by
+                    <strong>Kunal Bahl and Rohit Bansal.</strong>
+                    The company initially started as a daily deals
+                    platform and later moved towards an online
+                    marketplace model.
+                    <br><br>
+                    Its focus is to make online shopping accessible
+                    for value-conscious customers, including shoppers
+                    in smaller cities and towns.
+                </p>
+
+            </div>
+
+            <div class="highlight-grid">
+
+                <div class="highlight">
+                    <h3>2010</h3>
+                    <p>Year Snapdeal was founded</p>
+                </div>
+
+                <div class="highlight">
+                    <h3>2</h3>
+                    <p>Co-founders</p>
+                </div>
+
+                <div class="highlight">
+                    <h3>India</h3>
+                    <p>Its primary market</p>
+                </div>
+
+            </div>
+
+            <div class="info-grid">
+
+                <div class="info-card">
+                    <div class="info-icon">👨‍💼</div>
+                    <h3>Kunal Bahl</h3>
+                    <p>
+                        Co-founder of Snapdeal. He helped establish
+                        the company and build its e-commerce business.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">👨‍💼</div>
+                    <h3>Rohit Bansal</h3>
+                    <p>
+                        Co-founder of Snapdeal. He worked with
+                        Kunal Bahl to build and grow the platform.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- MARKETPLACE MODEL -->
+        <section>
+
+            <h2 class="section-title">How Snapdeal Marketplace Works</h2>
+
+            <p class="section-description">
+                Snapdeal works as an online marketplace. Sellers list
+                their products on the platform, customers place orders,
+                and the platform facilitates the buying and selling process.
+            </p>
+
+            <div class="process-list">
+
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>Seller Registration</h4>
+                    <p>
+                        Sellers register and provide the required
+                        business and store details.
+                    </p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>Product Listing</h4>
+                    <p>
+                        Sellers add product information, images,
+                        prices and other details.
+                    </p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>Customer Order</h4>
+                    <p>
+                        Customers browse products and place
+                        orders on the platform.
+                    </p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>Order Processing</h4>
+                    <p>
+                        The order goes through the required
+                        processing and verification stages.
+                    </p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h4>Shipping</h4>
+                    <p>
+                        The product is handed over for delivery
+                        through the logistics process.
+                    </p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <h4>Delivery</h4>
+                    <p>
+                        The logistics partner attempts delivery
+                        to the customer's address.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ORDER JOURNEY -->
+        <section>
+
+            <h2 class="section-title">E-commerce Order Journey</h2>
+
+            <p class="section-description">
+                Understand the basic journey of an order from the
+                moment a customer places it until delivery or return.
+            </p>
+
+            <div class="journey">
+
+                <div class="journey-item">Order Placed</div>
+                <span class="journey-arrow">→</span>
+
+                <div class="journey-item">Verification</div>
+                <span class="journey-arrow">→</span>
+
+                <div class="journey-item">Manifest</div>
+                <span class="journey-arrow">→</span>
+
+                <div class="journey-item">Shipped</div>
+                <span class="journey-arrow">→</span>
+
+                <div class="journey-item">In Transit</div>
+                <span class="journey-arrow">→</span>
+
+                <div class="journey-item">Out for Delivery</div>
+                <span class="journey-arrow">→</span>
+
+                <div class="journey-item">Delivered</div>
+
+            </div>
+
+            <div class="note">
+                <strong>Important:</strong>
+                If an order cannot be delivered, it may go through
+                an undelivered or NDR process. If a customer requests
+                a return, the order may enter the return and pickup
+                process according to the applicable policy.
+            </div>
+
+        </section>
+
+        <!-- CUSTOMER SUPPORT -->
+        <section>
+
+            <h2 class="section-title">Role of Customer Support in E-commerce</h2>
+
+            <p class="section-description">
+                Customer support helps customers resolve issues
+                related to their orders, products, delivery,
+                returns and refunds.
+            </p>
+
+            <div class="campaign-info">
+
+                <div class="campaign-info-card">
+                    <h4>OVS – Order Verification System</h4>
+                    <p>
+                        Helps verify customer orders and handle
+                        the relevant order verification process.
+                    </p>
+                </div>
+
+                <div class="campaign-info-card">
+                    <h4>Address Correction</h4>
+                    <p>
+                        Handles customer requests related to
+                        incomplete or incorrect delivery addresses.
+                    </p>
+                </div>
+
+                <div class="campaign-info-card">
+                    <h4>NDR – Non-Delivery Report</h4>
+                    <p>
+                        Handles cases where a customer's order
+                        could not be delivered.
+                    </p>
+                </div>
+
+                <div class="campaign-info-card">
+                    <h4>NPR – Non-Pickup Report</h4>
+                    <p>
+                        Handles cases where a scheduled return
+                        pickup was not completed.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+       
+       
+        <!-- LEARNING NOTE -->
+        <div class="note">
+            <strong>Learning Tip:</strong>
+            Before handling any customer query, understand the
+            customer's concern, check the available order details,
+            follow the correct campaign SOP and select the appropriate
+            tagging and disposition.
+        </div>
+
+    </main>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+    Snapdeal SOP Knowledge Hub | Internal Learning Portal
+    <br>
+    Learn • Understand • Follow the Process
+</footer>
+
+<script>
+
+
+function displaySOP(data) {
+
+    const container = document.getElementById("sopContainer");
+
+    container.innerHTML = "";
+
+    if(data.length === 0) {
+        container.innerHTML =
+        '<div class="empty">No SOP found!</div>';
+        return;
+    }
+
+    data.forEach(sop => {
+
+        container.innerHTML += `
+
+            <div class="sop-card">
+
+                <span class="badge">
+                    ${sop.campaign.toUpperCase()}
+                </span>
+
+                <h3>${sop.title}</h3>
+
+                <p>${sop.description}</p>
+
+                <a href="${getCampaignLink(sop.campaign)}"
+                   class="open-btn">
+                    Open Campaign
+                </a>
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+function getCampaignLink(campaign) {
+
+    const links = {
+        "Bulk": "bulk.html",
+        "Duplicate": "duplicate.html",
+        "Address Verification": "address-verification.html",
+        "RTO High": "rto-high.html",
+        "Address Correction": "address-correction.html",
+        "NDR": "ndr.html",
+        "NPR": "npr.html"
+    };
+
+    return links[campaign] || "index.html";
+}
+
+function searchSOP() {
+
+    const value = document.getElementById("searchInput")
+    .value.toLowerCase();
+
+    const filtered = sopData.filter(sop =>
+
+        sop.title.toLowerCase().includes(value) ||
+        sop.description.toLowerCase().includes(value) ||
+        sop.category.toLowerCase().includes(value) ||
+        sop.campaign.toLowerCase().includes(value)
+
+    );
+
+    document.getElementById("pageTitle").innerText =
+    "Search Results";
+
+    document.getElementById("pageDescription").innerText =
+    "Search results for: " + value;
+
+    displaySOP(filtered);
+}
+
+displaySOP(sopData);
+
+</script>
+
+</body>
+</html>

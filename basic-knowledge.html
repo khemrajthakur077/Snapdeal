@@ -1,0 +1,705 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snapdeal SOP - Basic Knowledge</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f6fa;
+    color: #263238;
+}
+
+/* HEADER */
+header {
+    background: #e40046;
+    color: white;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+header h1 { font-size: 25px; }
+header p { font-size: 13px; margin-top: 5px; }
+
+/* LAYOUT */
+.container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 270px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    height: fit-content;
+    flex-shrink: 0;
+}
+
+.sidebar h3 {
+    margin-bottom: 15px;
+    color: #e40046;
+}
+
+/* CAMPAIGN LINKS */
+.campaign-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 8px;
+    border: none;
+    background: #f5f5f5;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+
+.campaign-btn:hover,
+.campaign-btn.active {
+    background: #e40046;
+    color: white;
+}
+
+/* OVS SUB CAMPAIGNS */
+.sub-campaigns {
+    padding-left: 13px;
+    margin-bottom: 10px;
+}
+
+.sub-campaigns a {
+    display: block;
+    width: 100%;
+    padding: 11px;
+    margin-bottom: 6px;
+    border-left: 3px solid #e40046;
+    background: #fff0f4;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #333;
+    text-decoration: none;
+}
+
+.sub-campaigns a:hover {
+    background: #e40046;
+    color: white;
+}
+
+/* CONTENT */
+.content {
+    flex: 1;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    min-width: 0;
+}
+
+.content h2 {
+    color: #e40046;
+    margin-bottom: 10px;
+}
+
+.content > p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* SEARCH */
+.search-box {
+    margin-bottom: 25px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    background: white;
+}
+
+.search-box input:focus {
+    border-color: #e40046;
+}
+
+/* SECTION */
+.section {
+    background: white;
+    padding: 22px;
+    border-radius: 10px;
+    margin-bottom: 22px;
+    box-shadow: 0 2px 10px #00000008;
+    scroll-margin-top: 85px;
+}
+
+.section h2 {
+    font-size: 19px;
+    margin-bottom: 18px;
+    color: #222;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section h2 span {
+    background: #fff0f4;
+    color: #e40046;
+    padding: 8px;
+    border-radius: 7px;
+    font-size: 18px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.info-card {
+    border: 1px solid #eee;
+    padding: 17px;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.info-card h3 {
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: #e40046;
+}
+
+.info-card p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.info-card a {
+    color: #e40046;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.info-list {
+    list-style: none;
+}
+
+.info-list li {
+    padding: 12px 14px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    color: #444;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.info-list li:last-child {
+    border-bottom: none;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: #e40046;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.policy-box {
+    background: #fff7f9;
+    border-left: 4px solid #e40046;
+    padding: 16px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+.policy-box h3 {
+    color: #e40046;
+    font-size: 15px;
+    margin-bottom: 7px;
+}
+
+.policy-box p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.refund-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.refund-item {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 14px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.refund-item span {
+    font-size: 20px;
+}
+
+.journey {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 10px;
+}
+
+.journey-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    min-height: 58px;
+}
+
+.journey-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30px;
+    flex-shrink: 0;
+}
+
+.journey-number {
+    width: 29px;
+    height: 29px;
+    border-radius: 50%;
+    background: #fff0f4;
+    color: #e40046;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid #ffd2df;
+}
+
+.journey-line {
+    width: 2px;
+    height: 29px;
+    background: #f4c2d0;
+}
+
+.journey-text {
+    padding-top: 6px;
+    font-size: 14px;
+    color: #444;
+    font-weight: 500;
+}
+
+.journey-item:last-child .journey-line {
+    display: none;
+}
+
+.note {
+    background: #f5f7fb;
+    padding: 14px;
+    border-radius: 7px;
+    font-size: 13px;
+    color: #666;
+    margin-top: 15px;
+    line-height: 1.6;
+}
+
+.no-result {
+    display: none;
+    text-align: center;
+    padding: 25px;
+    color: #888;
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* FOOTER */
+footer {
+    background: #263238;
+    color: white;
+    text-align: center;
+    padding: 18px;
+    margin-top: 30px;
+    font-size: 13px;
+}
+
+/* MOBILE */
+@media(max-width:768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .content {
+        padding: 17px;
+    }
+
+    .info-grid,
+    .refund-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 17px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div>
+        <h1>SNAPDEAL SOP PORTAL</h1>
+        <p>Standard Operating Procedures | Knowledge Hub</p>
+    </div>
+    <div>Welcome to SOP Dashboard</div>
+</header>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <h3>CAMPAIGNS</h3>
+           <a href="index.html" class="campaign-btn"><span>Dashboard</span><span>↗</span></a>
+        <!-- OVS -->
+        <a href="ovs.html" class="campaign-btn">
+            <span>OVS (Order Verification System)</span>
+            <span>↗</span>
+        </a>
+
+        <!-- OVS SUB CAMPAIGNS -->
+        <div class="sub-campaigns">
+
+            <a href="bulk.html">A. Bulk</a>
+
+            <a href="duplicate.html">B. Duplicate</a>
+
+            <a href="address-verification.html">
+                C. Address Verification
+            </a>
+
+            <a href="rto-high.html">D. RTO High</a>
+
+        </div>
+
+        <!-- OTHER CAMPAIGNS -->
+
+        <a href="address-correction.html" class="campaign-btn">
+            <span>Address Correction</span>
+            <span>↗</span>
+        </a>
+
+        <a href="ndr.html" class="campaign-btn">
+            <span>NDR</span>
+            <span>↗</span>
+        </a>
+
+        <a href="npr.html" class="campaign-btn">
+            <span>NPR</span>
+            <span>↗</span>
+        </a>
+
+        <a href="basic-knowledge.html" class="campaign-btn active">
+            <span>Basic Knowledge</span>
+            <span>↗</span>
+        </a>
+
+        <a href="tat-guidelines.html" class="campaign-btn">
+            <span>TAT Guidelines</span>
+            <span>↗</span>
+        </a>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+
+        <div class="page-heading">
+            <h1>Basic Knowledge</h1>
+            <p>General information, customer contact methods, return policy, refund modes and order journey.</p>
+        </div>
+
+        <div class="search-box">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search basic knowledge..."
+                onkeyup="searchContent()"
+            >
+        </div>
+
+        <div class="no-result" id="noResult">
+            No matching information found.
+        </div>
+
+        <!-- CONTACT METHODS -->
+        <section class="section searchable">
+            <h2><span>☎</span> Customer Contact Methods</h2>
+
+            <div class="info-grid">
+
+                <div class="info-card">
+                    <h3>Snapdeal Email</h3>
+                    <p>
+                        Customer can contact Snapdeal through email.
+                        <br>
+                        <a href="mailto:help@snapdeal.com">help@snapdeal.com</a>
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h3>CMN</h3>
+                    <p>
+                        CMN means <b>Call Me Now</b>.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Chat</h3>
+                    <p>
+                        Customer can contact through Chat.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- NON RETURNABLE ITEMS -->
+        <section class="section searchable">
+            <h2><span>🚫</span> Non-Returnable Items</h2>
+
+            <ul class="info-list">
+                <li><span class="dot"></span> Eatable Item</li>
+                <li><span class="dot"></span> Undergarments</li>
+            </ul>
+        </section>
+
+        <!-- RETURN POLICY -->
+        <section class="section searchable">
+            <h2><span>↩</span> Return Policy</h2>
+
+            <div class="policy-box">
+                <h3>7 Days Return Policy</h3>
+                <p>
+                    Standard return policy is 7 days.
+                </p>
+            </div>
+
+            <div class="policy-box">
+                <h3>Exceptional 14 Days</h3>
+                <p>
+                    In exceptional cases, the return policy is 14 days.
+                </p>
+            </div>
+        </section>
+
+        <!-- REFUND MODES -->
+        <section class="section searchable">
+            <h2><span>₹</span> Refund Modes</h2>
+
+            <div class="refund-grid">
+
+                <div class="refund-item">
+                    <span>💳</span>
+                    <b>Snapdeal Wallet / Credit / RFV</b>
+                </div>
+
+                <div class="refund-item">
+                    <span>📱</span>
+                    <b>UPI</b>
+                </div>
+
+                <div class="refund-item">
+                    <span>🏦</span>
+                    <b>NEFT - Bank</b>
+                </div>
+
+                <div class="refund-item">
+                    <span>💳</span>
+                    <b>Credit Card / Debit Card</b>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ORDER JOURNEY -->
+        <section class="section searchable">
+            <h2><span>📦</span> Order Journey</h2>
+
+            <div class="journey">
+
+                <div class="journey-item">
+                    <div class="journey-marker">
+                        <div class="journey-number">1</div>
+                        <div class="journey-line"></div>
+                    </div>
+                    <div class="journey-text">Order Placed</div>
+                </div>
+
+                <div class="journey-item">
+                    <div class="journey-marker">
+                        <div class="journey-number">2</div>
+                        <div class="journey-line"></div>
+                    </div>
+                    <div class="journey-text">Verification</div>
+                </div>
+
+                <div class="journey-item">
+                    <div class="journey-marker">
+                        <div class="journey-number">3</div>
+                        <div class="journey-line"></div>
+                    </div>
+                    <div class="journey-text">Hit on Seller Panel / Manifest</div>
+                </div>
+
+                <div class="journey-item">
+                    <div class="journey-marker">
+                        <div class="journey-number">4</div>
+                        <div class="journey-line"></div>
+                    </div>
+                    <div class="journey-text">Print Invoice</div>
+                </div>
+
+                <div class="journey-item">
+                    <div class="journey-marker">
+                        <div class="journey-number">5</div>
+                        <div class="journey-line"></div>
+                    </div>
+                    <div class="journey-text">Shipped</div>
+                </div>
+
+                <div class="journey-item">
+                    <div class="journey-marker">
+                        <div class="journey-number">6</div>
+                        <div class="journey-line"></div>
+                    </div>
+                    <div class="journey-text">In Transit</div>
+                </div>
+
+                <div class="journey-item">
+                    <div class="journey-marker">
+                        <div class="journey-number">7</div>
+                        <div class="journey-line"></div>
+                    </div>
+                    <div class="journey-text">OFD (Out for Delivery)</div>
+                </div>
+
+                <div class="journey-item">
+                    <div class="journey-marker">
+                        <div class="journey-number">8</div>
+                        <div class="journey-line"></div>
+                    </div>
+                    <div class="journey-text">Undelivered</div>
+                </div>
+
+                <div class="journey-item">
+                    <div class="journey-marker">
+                        <div class="journey-number">9</div>
+                        <div class="journey-line"></div>
+                    </div>
+                    <div class="journey-text">Delivered</div>
+                </div>
+
+                <div class="journey-item">
+                    <div class="journey-marker">
+                        <div class="journey-number">10</div>
+                        <div class="journey-line"></div>
+                    </div>
+                    <div class="journey-text">Return and Replace</div>
+                </div>
+
+                <div class="journey-item">
+                    <div class="journey-marker">
+                        <div class="journey-number">11</div>
+                        <div class="journey-line"></div>
+                    </div>
+                    <div class="journey-text">Pickup Initiate</div>
+                </div>
+
+                <div class="journey-item">
+                    <div class="journey-marker">
+                        <div class="journey-number">12</div>
+                    </div>
+                    <div class="journey-text">Pickup Failed</div>
+                </div>
+
+            </div>
+
+            <div class="note">
+                Note: This order journey is displayed in the same sequence as the provided SOP information.
+            </div>
+        </section>
+
+    </main>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+    Snapdeal SOP Knowledge Hub | Internal Learning Portal
+</footer>
+
+<script>
+function searchContent() {
+    let input = document.getElementById("searchInput")
+        .value.toLowerCase().trim();
+
+    let sections = document.querySelectorAll(".searchable");
+    let found = 0;
+
+    sections.forEach(section => {
+        let text = section.innerText.toLowerCase();
+
+        if (text.includes(input)) {
+            section.style.display = "block";
+            found++;
+        } else {
+            section.style.display = "none";
+        }
+    });
+
+    document.getElementById("noResult").style.display =
+        found === 0 ? "block" : "none";
+}
+</script>
+
+</body>
+</html>

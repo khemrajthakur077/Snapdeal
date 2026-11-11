@@ -1,0 +1,1153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Address Correction | Snapdeal SOP Portal</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+:root {
+    --red: #e40046;
+    --dark: #263238;
+    --muted: #647078;
+    --bg: #f4f6fa;
+    --light: #fff0f4;
+}
+
+body {
+    background: var(--bg);
+    color: var(--dark);
+}
+
+header {
+    background: var(--red);
+    color: #fff;
+    padding: 19px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    font-size: 24px;
+    letter-spacing: .3px;
+}
+
+header p {
+    font-size: 13px;
+    margin-top: 5px;
+    opacity: .92;
+}
+
+.header-tag {
+    background: rgba(255,255,255,.16);
+    padding: 9px 13px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1500px;
+    margin: auto;
+}
+
+.sidebar {
+    width: 265px;
+    flex-shrink: 0;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    height: fit-content;
+    box-shadow: 0 3px 15px rgba(30,40,50,.04);
+}
+
+.sidebar h3 {
+    color: var(--red);
+    font-size: 14px;
+    letter-spacing: .8px;
+    margin-bottom: 15px;
+}
+
+.campaign-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 13px;
+    margin-bottom: 8px;
+    background: #f5f5f5;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #333;
+    text-decoration: none;
+    transition: .2s;
+}
+
+.campaign-btn:hover,
+.campaign-btn.active {
+    background: var(--red);
+    color: #fff;
+}
+
+.sub-campaigns {
+    padding-left: 12px;
+    margin: 0 0 12px;
+}
+
+.sub-campaigns a {
+    display: block;
+    padding: 10px 11px;
+    margin-bottom: 5px;
+    background: #fff0f4;
+    border-left: 3px solid var(--red);
+    border-radius: 5px;
+    font-size: 12px;
+    color: #444;
+    text-decoration: none;
+}
+
+.sub-campaigns a:hover {
+    background: var(--red);
+    color: #fff;
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
+}
+
+.back {
+    display: inline-block;
+    color: var(--red);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    margin: 2px 0 14px;
+}
+
+.hero {
+    background: linear-gradient(120deg,#e40046,#b90039);
+    color: #fff;
+    padding: 26px;
+    border-radius: 13px;
+    margin-bottom: 18px;
+    box-shadow: 0 8px 20px rgba(228,0,70,.12);
+}
+
+.hero .eyebrow {
+    font-size: 11px;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+    opacity: .85;
+    font-weight: bold;
+}
+
+.hero h2 {
+    font-size: 27px;
+    margin: 8px 0;
+}
+
+.hero p {
+    font-size: 14px;
+    line-height: 1.65;
+    max-width: 780px;
+    opacity: .95;
+}
+
+.hero-chip {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 7px 11px;
+    border: 1px solid rgba(255,255,255,.4);
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.stat {
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+}
+
+.stat strong {
+    display: block;
+    color: var(--red);
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+.stat span {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.panel {
+    background: #fff;
+    border: 1px solid #eceef1;
+    border-radius: 11px;
+    padding: 21px;
+    margin-bottom: 17px;
+    box-shadow: 0 2px 10px rgba(30,40,50,.025);
+}
+
+.panel-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.panel h3 {
+    font-size: 17px;
+    color: var(--dark);
+}
+
+.section-no {
+    background: var(--light);
+    color: var(--red);
+    font-size: 11px;
+    font-weight: bold;
+    padding: 6px 9px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.panel p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #4e5960;
+    margin: 8px 0;
+}
+
+.steps {
+    display: grid;
+    gap: 10px;
+}
+
+.step {
+    display: flex;
+    gap: 12px;
+    padding: 13px;
+    background: #fafbfc;
+    border: 1px solid #edf0f2;
+    border-radius: 8px;
+}
+
+.step-num {
+    width: 29px;
+    height: 29px;
+    flex-shrink: 0;
+    background: var(--light);
+    color: var(--red);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.step strong {
+    font-size: 13px;
+    display: block;
+    margin: 2px 0 5px;
+}
+
+.step p {
+    margin: 0;
+    font-size: 12px;
+}
+
+.path {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+    margin: 12px 0;
+}
+
+.path span {
+    background: #fff0f4;
+    color: #b90039;
+    border: 1px solid #ffd4e0;
+    border-radius: 6px;
+    padding: 9px 11px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.path b {
+    color: #a3aab0;
+}
+
+.note {
+    padding: 14px 15px;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.65;
+    margin-top: 13px;
+}
+
+.note.warning {
+    background: #fff8e8;
+    border-left: 4px solid #e5a000;
+    color: #624900;
+}
+
+.note.info {
+    background: #fff0f4;
+    border-left: 4px solid var(--red);
+    color: #713047;
+}
+
+/* ADDRESS HELPER */
+
+.address-grid {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.field label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #46515a;
+}
+
+.field input,
+.field textarea {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #dce1e5;
+    border-radius: 7px;
+    font-size: 13px;
+    outline: none;
+    background: #fff;
+}
+
+.field input:focus,
+.field textarea:focus {
+    border-color: var(--red);
+    box-shadow: 0 0 0 3px rgba(228,0,70,.08);
+}
+
+.field.full {
+    grid-column: 1/-1;
+}
+
+.actions {
+    display: flex;
+    gap: 9px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+}
+
+.btn {
+    border: 0;
+    border-radius: 7px;
+    padding: 11px 15px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn.primary {
+    background: var(--red);
+    color: #fff;
+}
+
+.btn.secondary {
+    background: #f0f1f3;
+    color: #333;
+}
+
+.btn:hover {
+    opacity: .88;
+}
+
+.output {
+    display: none;
+    margin-top: 15px;
+    background: #f8f9fb;
+    border: 1px solid #e7eaed;
+    padding: 14px;
+    border-radius: 8px;
+}
+
+.output.show {
+    display: block;
+}
+
+.output label {
+    font-size: 12px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 7px;
+}
+
+.output textarea {
+    width: 100%;
+    min-height: 105px;
+    padding: 11px;
+    border: 1px solid #dce1e5;
+    border-radius: 6px;
+    resize: vertical;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.quick-list {
+    padding-left: 21px;
+    line-height: 1.9;
+    font-size: 13px;
+    color: #4e5960;
+}
+
+.footer {
+    background: var(--dark);
+    color: #fff;
+    text-align: center;
+    padding: 18px;
+    margin-top: 18px;
+    font-size: 12px;
+}
+
+.progress-wrap {
+    height: 7px;
+    background: #f0e8eb;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 12px;
+}
+
+.progress {
+    height: 100%;
+    width: 0;
+    background: var(--red);
+    transition: width .2s;
+}
+
+.checklist {
+    display: grid;
+    gap: 9px;
+    margin-top: 12px;
+}
+
+.checklist label {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    padding: 10px;
+    background: #fafbfc;
+    border: 1px solid #edf0f2;
+    border-radius: 7px;
+    font-size: 13px;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.checklist input {
+    accent-color: var(--red);
+    margin-top: 2px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:850px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .stats {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width:560px) {
+    header {
+        padding: 18px;
+    }
+
+    .container {
+        padding: 12px;
+    }
+
+    .hero {
+        padding: 20px;
+    }
+
+    .hero h2 {
+        font-size: 22px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .address-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .field.full {
+        grid-column: auto;
+    }
+
+    .panel {
+        padding: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div>
+        <h1>SNAPDEAL SOP PORTAL</h1>
+        <p>Standard Operating Procedures | Knowledge Hub</p>
+    </div>
+
+    <div class="header-tag">
+        Address Correction Campaign
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <h3>CAMPAIGNS</h3>
+       <a href="index.html" class="campaign-btn"><span>Dashboard</span><span>↗</span></a>
+        <a href="ovs.html" class="campaign-btn">
+            <span>OVS (Order Verification System)</span>
+            <span>↗</span>
+        </a>
+
+        <div class="sub-campaigns">
+            <a href="bulk.html">A. Bulk</a>
+            <a href="duplicate.html">B. Duplicate</a>
+            <a href="address-verification.html">C. Address Verification</a>
+            <a href="rto-high.html">D. Seller RTO High</a>
+        </div>
+
+        <a href="address-correction.html"
+           class="campaign-btn active">
+            <span>Address Correction</span>
+            <span>●</span>
+        </a>
+
+        <a href="ndr.html" class="campaign-btn">
+            <span>NDR</span>
+            <span>↗</span>
+        </a>
+
+        <a href="npr.html" class="campaign-btn">
+            <span>NPR</span>
+            <span>↗</span>
+        </a>
+
+         <a href="basic-knowledge.html" class="campaign-btn">
+        <span>Basic Knowledge</span>
+        <span>↗</span>
+        </a>
+
+      <a href="tat-guidelines.html" class="campaign-btn">
+        <span>TAT Guidelines</span>
+        <span>↗</span>
+        </a>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+
+    <main class="content">
+
+        <a href="index.html" class="back">
+            ← Back to Dashboard
+        </a>
+
+        <!-- HERO SECTION -->
+
+        <section class="hero">
+
+            <div class="eyebrow">
+                Campaign Training Guide
+            </div>
+
+            <h2>Address Correction</h2>
+
+            <p>
+                Is campaign mein un customers (CX) ki calls receive hoti hain
+                jinke order ka delivery address incomplete ya incorrect hota hai.
+                Agent ki responsibility customer se correct address lena aur
+                Kapture mein proper tagging aur details update karna hai.
+            </p>
+
+            <span class="hero-chip">
+                Kapture Tagging: CX Projects → Address Correction
+            </span>
+
+        </section>
+
+        <!-- STATS -->
+
+        <div class="stats">
+
+            <div class="stat">
+                <strong>01</strong>
+                <span>Suborder ID required</span>
+            </div>
+
+            <div class="stat">
+                <strong>Closed</strong>
+                <span>Kapture disposition</span>
+            </div>
+
+            <div class="stat">
+                <strong>02 Boxes</strong>
+                <span>Final details update</span>
+            </div>
+
+        </div>
+
+        <!-- OVERVIEW -->
+
+        <section class="panel">
+
+            <div class="panel-head">
+                <h3>1. Campaign Overview</h3>
+                <span class="section-no">OVERVIEW</span>
+            </div>
+
+            <p>
+                Address Correction campaign mein humein un customers (CX)
+                ki calls receive hoti hain jinke order ka delivery address
+                incomplete ya incorrect hota hai.
+            </p>
+
+            <p>
+                Hamari responsibility hoti hai customer se correct address
+                lena aur Kapture mein proper tagging aur details update karna.
+            </p>
+
+            <div class="note info">
+                <strong>Core responsibility:</strong>
+                Customer se complete aur corrected address lena,
+                phir Kapture mein required details update karna.
+            </div>
+
+        </section>
+
+        <!-- PROCESS -->
+
+        <section class="panel">
+
+            <div class="panel-head">
+                <h3>2. Step-by-Step Process</h3>
+                <span class="section-no">6 STEPS</span>
+            </div>
+
+            <div class="steps">
+
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div>
+                        <strong>Call Receive Karna</strong>
+                        <p>
+                            Jab Ozonetel mein Address Correction campaign
+                            ki call land hoti hai, customer ki concern handle karein.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div>
+                        <strong>Suborder ID Copy Karna</strong>
+                        <p>
+                            Sabse pehle customer ka Suborder ID copy karein.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div>
+                        <strong>Kapture Open Karna</strong>
+                        <p>
+                            Kapture mein Suborder ID paste karke customer
+                            ka order search karein.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div>
+                        <strong>Order Tagging</strong>
+                        <p>
+                            Order ko tag karein aur correct folder select karein.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">5</div>
+                    <div>
+                        <strong>Disposition Select Karna</strong>
+                        <p>
+                            Disposition mein <strong>Closed</strong> select karein.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">6</div>
+                    <div>
+                        <strong>Details Update Karna</strong>
+                        <p>
+                            First box mein Suborder ID aur second box mein
+                            customer ka complete corrected address enter karein.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- KAPTURE TAGGING -->
+
+        <section class="panel">
+
+            <div class="panel-head">
+                <h3>3. Kapture Tagging</h3>
+                <span class="section-no">FOLDER PATH</span>
+            </div>
+
+            <p>
+                Kapture mein customer ke order ko tag karte waqt
+                ye folder path select karna hai:
+            </p>
+
+            <div class="path">
+                <span>CX Projects</span>
+                <b>›</b>
+                <span>Address Correction</span>
+            </div>
+
+            <div class="note info">
+                <strong>Disposition:</strong> Closed
+            </div>
+
+        </section>
+
+        <!-- DETAILS UPDATE -->
+
+        <section class="panel">
+
+            <div class="panel-head">
+                <h3>4. Details Update in Kapture</h3>
+                <span class="section-no">2 BOXES</span>
+            </div>
+
+            <p>
+                Tagging aur disposition ke baad last mein do boxes milte hain:
+            </p>
+
+            <div class="steps">
+
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div>
+                        <strong>First Box</strong>
+                        <p>
+                            Ismein customer ka Suborder ID enter karna hai.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div>
+                        <strong>Second Box</strong>
+                        <p>
+                            Ismein customer ka complete and corrected
+                            address enter karna hai.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ADDRESS HELPER -->
+
+        <section class="panel" id="addressBuilder">
+
+            <div class="panel-head">
+                <h3>5. Address Format Helper</h3>
+                <span class="section-no">INTERACTIVE TOOL</span>
+            </div>
+
+            <p>
+                Customer se address lete time neeche diya gaya format
+                follow karein. Details fill karke corrected address
+                prepare aur copy kar sakte hain.
+            </p>
+
+            <div class="address-grid">
+
+                <div class="field">
+                    <label for="house">
+                        1. House No. / Flat No. / Floor
+                    </label>
+                    <input id="house"
+                           placeholder="Enter house, flat and floor">
+                </div>
+
+                <div class="field">
+                    <label for="building">2. Building Name</label>
+                    <input id="building"
+                           placeholder="Enter building name">
+                </div>
+
+                <div class="field">
+                    <label for="street">3. Road / Street Name</label>
+                    <input id="street"
+                           placeholder="Enter road or street">
+                </div>
+
+                <div class="field">
+                    <label for="sector">4. Sector</label>
+                    <input id="sector"
+                           placeholder="Enter sector">
+                </div>
+
+                <div class="field">
+                    <label for="landmark">5. Landmark</label>
+                    <input id="landmark"
+                           placeholder="Enter nearby landmark">
+                </div>
+
+                <div class="field">
+                    <label for="city">6. City</label>
+                    <input id="city"
+                           placeholder="Enter city">
+                </div>
+
+                <div class="field">
+                    <label for="pincode">7. Pincode</label>
+                    <input id="pincode"
+                           inputmode="numeric"
+                           maxlength="6"
+                           placeholder="Enter pincode">
+                </div>
+
+                <div class="field">
+                    <label for="alternate">
+                        8. Alternate Contact No.
+                    </label>
+                    <input id="alternate"
+                           inputmode="tel"
+                           maxlength="15"
+                           placeholder="Enter alternate contact number">
+                </div>
+
+            </div>
+
+            <div class="actions">
+
+                <button class="btn primary"
+                        type="button"
+                        onclick="generateAddress()">
+                    Generate Address
+                </button>
+
+                <button class="btn secondary"
+                        type="button"
+                        onclick="clearAddress()">
+                    Clear Fields
+                </button>
+
+            </div>
+
+            <div class="output" id="addressOutput">
+
+                <label for="generatedAddress">
+                    Complete Corrected Address
+                </label>
+
+                <textarea id="generatedAddress" readonly></textarea>
+
+                <div class="actions">
+                    <button class="btn primary"
+                            type="button"
+                            onclick="copyAddress()">
+                        Copy Address
+                    </button>
+                </div>
+
+                <p id="copyMessage" aria-live="polite"></p>
+
+            </div>
+
+        </section>
+
+        <!-- IMPORTANT NOTE -->
+
+        <section class="panel">
+
+            <div class="panel-head">
+                <h3>6. Important Note – Wrong Pincode Case</h3>
+                <span class="section-no">IMPORTANT</span>
+            </div>
+
+            <div class="note warning">
+                <strong>Wrong Pincode Case:</strong>
+                <br>
+                Agar kisi bhi case mein customer ka Pincode incorrect hai,
+                toh customer ko khud se order replace karne ke liye
+                redirect karna hai.
+            </div>
+
+        </section>
+
+        <!-- CHECKLIST -->
+
+        <section class="panel">
+
+            <div class="panel-head">
+                <h3>7. Quick Process Revision</h3>
+                <span class="section-no">REVISION CHECKLIST</span>
+            </div>
+
+            <p>
+                Process complete karne se pehle checklist se steps
+                revise kar sakte hain.
+            </p>
+
+            <div class="checklist" id="revisionChecklist">
+
+                <label>
+                    <input type="checkbox">
+                    Ozonetel par call receive karna.
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Customer ka Suborder ID copy karna.
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Kapture mein Suborder ID paste karna.
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Tagging: CX Projects → Address Correction.
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Disposition: Closed.
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    First box mein Suborder ID enter karna.
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Second box mein complete corrected address enter karna.
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Wrong Pincode hone par CX ko self-replacement
+                    ke liye redirect karna.
+                </label>
+
+            </div>
+
+            <div class="progress-wrap">
+                <div class="progress" id="checkProgress"></div>
+            </div>
+
+            <p id="progressText" aria-live="polite">
+                0 of 8 steps completed
+            </p>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    Snapdeal SOP Knowledge Hub | Internal Learning Portal
+</footer>
+
+<script>
+
+// GENERATE ADDRESS
+
+function generateAddress() {
+
+    const fields = [
+        ["House / Flat / Floor", "house"],
+        ["Building Name", "building"],
+        ["Road / Street Name", "street"],
+        ["Sector", "sector"],
+        ["Landmark", "landmark"],
+        ["City", "city"],
+        ["Pincode", "pincode"],
+        ["Alternate Contact No.", "alternate"]
+    ];
+
+    const lines = fields
+        .map(([label, id]) => {
+
+            const value = document
+                .getElementById(id)
+                .value.trim();
+
+            return value ? label + " – " + value : "";
+
+        })
+        .filter(Boolean);
+
+    if (lines.length === 0) {
+        alert("Please enter address details first.");
+        return;
+    }
+
+    document.getElementById("generatedAddress").value =
+        lines.join("\n");
+
+    document.getElementById("addressOutput")
+        .classList.add("show");
+
+    document.getElementById("copyMessage").textContent = "";
+
+}
+
+
+// COPY ADDRESS
+
+async function copyAddress() {
+
+    const text = document
+        .getElementById("generatedAddress")
+        .value;
+
+    if (!text) return;
+
+    try {
+
+        await navigator.clipboard.writeText(text);
+
+        document.getElementById("copyMessage")
+            .textContent = "Address copied successfully!";
+
+    } catch (error) {
+
+        const box = document
+            .getElementById("generatedAddress");
+
+        box.select();
+        document.execCommand("copy");
+
+        document.getElementById("copyMessage")
+            .textContent = "Address copied.";
+
+    }
+
+}
+
+
+// CLEAR ADDRESS FIELDS
+
+function clearAddress() {
+
+    document
+        .querySelectorAll("#addressBuilder input")
+        .forEach(input => input.value = "");
+
+    document.getElementById("generatedAddress").value = "";
+
+    document.getElementById("addressOutput")
+        .classList.remove("show");
+
+    document.getElementById("copyMessage").textContent = "";
+
+}
+
+
+// CHECKLIST PROGRESS
+
+const checks = document.querySelectorAll(
+    "#revisionChecklist input"
+);
+
+checks.forEach(check => {
+    check.addEventListener("change", updateProgress);
+});
+
+function updateProgress() {
+
+    const done = [...checks].filter(
+        check => check.checked
+    ).length;
+
+    const total = checks.length;
+
+    document.getElementById("checkProgress")
+        .style.width = (done / total * 100) + "%";
+
+    document.getElementById("progressText").textContent =
+        done + " of " + total + " steps completed";
+
+}
+
+</script>
+
+</body>
+</html>

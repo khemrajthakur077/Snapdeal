@@ -1,0 +1,1438 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NPR Campaign | Snapdeal SOP Portal</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+:root {
+    --red: #e40046;
+    --dark: #263238;
+    --muted: #647078;
+    --bg: #f4f6fa;
+    --light: #fff0f4;
+}
+
+body {
+    background: var(--bg);
+    color: var(--dark);
+}
+
+header {
+    background: var(--red);
+    color: white;
+    padding: 19px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+header p {
+    font-size: 13px;
+    margin-top: 5px;
+    opacity: .9;
+}
+
+.header-tag {
+    background: rgba(255,255,255,.17);
+    padding: 9px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1500px;
+    margin: auto;
+}
+
+.sidebar {
+    width: 265px;
+    flex-shrink: 0;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    height: fit-content;
+    box-shadow: 0 3px 15px rgba(30,40,50,.04);
+}
+
+.sidebar h3 {
+    color: var(--red);
+    font-size: 14px;
+    letter-spacing: .8px;
+    margin-bottom: 15px;
+}
+
+.campaign-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 13px;
+    margin-bottom: 8px;
+    background: #f5f5f5;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #333;
+    text-decoration: none;
+    transition: .2s;
+}
+
+.campaign-btn:hover,
+.campaign-btn.active {
+    background: var(--red);
+    color: white;
+}
+
+.sub-campaigns {
+    padding-left: 12px;
+    margin-bottom: 12px;
+}
+
+.sub-campaigns a {
+    display: block;
+    padding: 10px 11px;
+    margin-bottom: 5px;
+    background: #fff0f4;
+    border-left: 3px solid var(--red);
+    border-radius: 5px;
+    font-size: 12px;
+    color: #444;
+    text-decoration: none;
+}
+
+.sub-campaigns a:hover {
+    background: var(--red);
+    color: white;
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
+}
+
+.back {
+    display: inline-block;
+    color: var(--red);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 2px 0 14px;
+}
+
+.hero {
+    background: linear-gradient(120deg,#e40046,#b90039);
+    color: white;
+    padding: 27px;
+    border-radius: 13px;
+    margin-bottom: 18px;
+    box-shadow: 0 8px 20px rgba(228,0,70,.12);
+}
+
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+    opacity: .85;
+    font-weight: bold;
+}
+
+.hero h2 {
+    font-size: 28px;
+    margin: 8px 0;
+}
+
+.hero p {
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 800px;
+}
+
+.hero-chip {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 7px 11px;
+    border: 1px solid rgba(255,255,255,.4);
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4,minmax(0,1fr));
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.stat {
+    background: white;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+}
+
+.stat strong {
+    display: block;
+    color: var(--red);
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+.stat span {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.panel {
+    background: white;
+    border: 1px solid #eceef1;
+    border-radius: 11px;
+    padding: 21px;
+    margin-bottom: 17px;
+    box-shadow: 0 2px 10px rgba(30,40,50,.025);
+    scroll-margin-top: 15px;
+}
+
+.panel-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.panel h3 {
+    font-size: 17px;
+    color: var(--dark);
+}
+
+.section-no {
+    background: var(--light);
+    color: var(--red);
+    font-size: 11px;
+    font-weight: bold;
+    padding: 6px 9px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.panel p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #4e5960;
+    margin: 8px 0;
+}
+
+.steps {
+    display: grid;
+    gap: 10px;
+}
+
+.step {
+    display: flex;
+    gap: 12px;
+    padding: 13px;
+    background: #fafbfc;
+    border: 1px solid #edf0f2;
+    border-radius: 8px;
+}
+
+.step-num {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    background: var(--light);
+    color: var(--red);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.step strong {
+    font-size: 13px;
+    display: block;
+    margin: 2px 0 5px;
+}
+
+.step p {
+    margin: 0;
+    font-size: 12px;
+}
+
+.path {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+    margin: 13px 0;
+}
+
+.path span {
+    background: #fff0f4;
+    color: #b90039;
+    border: 1px solid #ffd4e0;
+    border-radius: 6px;
+    padding: 9px 11px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.path b {
+    color: #a3aab0;
+}
+
+.note {
+    padding: 14px 15px;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.7;
+    margin-top: 13px;
+}
+
+.note.warning {
+    background: #fff8e8;
+    border-left: 4px solid #e5a000;
+    color: #624900;
+}
+
+.note.info {
+    background: #fff0f4;
+    border-left: 4px solid var(--red);
+    color: #713047;
+}
+
+.note.success {
+    background: #eefaf2;
+    border-left: 4px solid #239b56;
+    color: #205d39;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 480px;
+}
+
+th, td {
+    border: 1px solid #e9ecef;
+    padding: 12px;
+    text-align: left;
+    font-size: 13px;
+}
+
+th {
+    background: #fff0f4;
+    color: #a90036;
+}
+
+td {
+    color: #46515a;
+}
+
+.badge {
+    display: inline-block;
+    padding: 5px 9px;
+    background: #fff0f4;
+    color: #b90039;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.code-grid {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 10px;
+    margin-top: 13px;
+}
+
+.code-card {
+    background: #fafbfc;
+    border: 1px solid #eceef1;
+    border-radius: 8px;
+    padding: 13px;
+}
+
+.code-card strong {
+    color: var(--red);
+    font-size: 14px;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.code-card p {
+    margin: 0;
+    font-size: 12px;
+}
+
+.case-grid {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 12px;
+}
+
+.case-card {
+    padding: 16px;
+    border: 1px solid #eceef1;
+    border-radius: 9px;
+    background: #fafbfc;
+}
+
+.case-card h4 {
+    color: var(--red);
+    font-size: 14px;
+    margin-bottom: 9px;
+}
+
+.case-card p {
+    font-size: 12px;
+}
+
+.quote {
+    background: #fff0f4;
+    border-left: 4px solid var(--red);
+    border-radius: 7px;
+    padding: 14px;
+    margin-top: 12px;
+    color: #713047;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.quick-list {
+    padding-left: 20px;
+    line-height: 1.9;
+    font-size: 13px;
+    color: #4e5960;
+}
+
+.checklist {
+    display: grid;
+    gap: 9px;
+    margin-top: 12px;
+}
+
+.checklist label {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    padding: 11px;
+    background: #fafbfc;
+    border: 1px solid #edf0f2;
+    border-radius: 7px;
+    font-size: 13px;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.checklist input {
+    accent-color: var(--red);
+    margin-top: 2px;
+}
+
+.progress-wrap {
+    height: 7px;
+    background: #f0e8eb;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.progress {
+    height: 100%;
+    width: 0;
+    background: var(--red);
+    transition: width .2s;
+}
+
+.search-box {
+    width: 100%;
+    padding: 11px 13px;
+    border: 1px solid #dce1e5;
+    border-radius: 7px;
+    outline: none;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.search-box:focus {
+    border-color: var(--red);
+}
+
+.footer {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 18px;
+    margin-top: 18px;
+    font-size: 12px;
+}
+
+@media(max-width:1000px) {
+    .stats {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media(max-width:850px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+}
+
+@media(max-width:560px) {
+    header {
+        padding: 18px;
+    }
+
+    .container {
+        padding: 12px;
+    }
+
+    .hero {
+        padding: 20px;
+    }
+
+    .hero h2 {
+        font-size: 23px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .case-grid,
+    .code-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .panel {
+        padding: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div>
+        <h1>SNAPDEAL SOP PORTAL</h1>
+        <p>Standard Operating Procedures | Knowledge Hub</p>
+    </div>
+
+    <div class="header-tag">
+        NPR Campaign
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <h3>CAMPAIGNS</h3>
+          <a href="index.html" class="campaign-btn"><span>Dashboard</span><span>↗</span></a>
+
+        <input
+            type="text"
+            class="search-box"
+            id="campaignSearch"
+            placeholder="Search campaign..."
+        >
+
+        <div id="campaignLinks">
+
+            <a href="ovs.html" class="campaign-btn">
+                <span>OVS (Order Verification System)</span>
+                <span>↗</span>
+            </a>
+
+            <div class="sub-campaigns">
+                <a href="bulk.html">A. Bulk</a>
+                <a href="duplicate.html">B. Duplicate</a>
+                <a href="address-verification.html">C. Address Verification</a>
+                <a href="rto-high.html">D. Seller RTO High</a>
+            </div>
+
+            <a href="address-correction.html" class="campaign-btn">
+                <span>Address Correction</span>
+                <span>↗</span>
+            </a>
+
+            <a href="ndr.html" class="campaign-btn">
+                <span>NDR</span>
+                <span>↗</span>
+            </a>
+
+            <a href="npr.html" class="campaign-btn active">
+                <span>NPR</span>
+                <span>●</span>
+            </a>
+
+             <a href="basic-knowledge.html" class="campaign-btn">
+        <span>Basic Knowledge</span>
+        <span>↗</span>
+        </a>
+
+       <a href="tat-guidelines.html" class="campaign-btn">
+        <span>TAT Guidelines</span>
+        <span>↗</span>
+        </a>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+
+    <main class="content">
+
+        <a href="index.html" class="back">
+            ← Back to Dashboard
+        </a>
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="eyebrow">Campaign Training Guide</div>
+
+            <h2>NPR – Non-Pickup Report</h2>
+
+            <p>
+                NPR campaign mein un customers ki calls receive hoti hain
+                jinka return pickup fail ho chuka hota hai. Jab Ozonetel
+                mein campaign name NPR show hota hai, toh customer ki query
+                Return Pickup Failed se related hoti hai.
+            </p>
+
+            <span class="hero-chip">
+                Return Pickup | Ozonetel + Kapture
+            </span>
+
+        </section>
+
+        <!-- STATS -->
+
+        <div class="stats">
+
+            <div class="stat">
+                <strong>NPR</strong>
+                <span>Non-Pickup Report</span>
+            </div>
+
+            <div class="stat">
+                <strong>RPU</strong>
+                <span>Return Pickup Details</span>
+            </div>
+
+            <div class="stat">
+                <strong>2–3 Days</strong>
+                <span>Same Return Reason</span>
+            </div>
+
+            <div class="stat">
+                <strong>24 Hours</strong>
+                <span>New Ticket Best-Effort Timeline</span>
+            </div>
+
+        </div>
+
+        <!-- OVERVIEW -->
+
+        <section class="panel">
+
+            <div class="panel-head">
+                <h3>1. Campaign Overview</h3>
+                <span class="section-no">OVERVIEW</span>
+            </div>
+
+            <p>
+                NPR stands for <strong>Non-Pickup Report</strong>.
+            </p>
+
+            <p>
+                Is campaign mein humein un customers ki calls receive
+                hoti hain jinka return pickup fail ho chuka hota hai.
+            </p>
+
+            <div class="note info">
+                <strong>Campaign Identification:</strong>
+                Jab Ozonetel mein call land hoti hai aur campaign name
+                NPR show hota hai, toh samajhna hai ki customer ki query
+                Return Pickup Failed se related hai.
+            </div>
+
+            <p><strong>Tools Used:</strong></p>
+
+            <div class="path">
+                <span>1. Ozonetel</span>
+                <span>2. Kapture</span>
+            </div>
+
+        </section>
+
+        <!-- CALL PROCESS -->
+
+        <section class="panel">
+
+            <div class="panel-head">
+                <h3>2. Call Handling Process</h3>
+                <span class="section-no">3 MAIN STEPS</span>
+            </div>
+
+            <div class="steps">
+
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div>
+                        <strong>Call Receive</strong>
+                        <p>
+                            Horizontal mein NPR campaign ki call receive
+                            karni hai aur customer ki concern understand
+                            karni hai.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div>
+                        <strong>Kapture</strong>
+                        <p>
+                            Kapture mein customer ki concern ko copy
+                            karke correct tagging karni hai.
+                            Uske baad Kapture ke right side mein
+                            available RPU option par jaana hai.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div>
+                        <strong>RPU Check</strong>
+                        <p>
+                            Return Pickup section mein available
+                            information check karni hai.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- RPU CHECK -->
+
+        <section class="panel">
+
+            <div class="panel-head">
+                <h3>3. RPU – Return Pickup Check</h3>
+                <span class="section-no">IMPORTANT</span>
+            </div>
+
+            <p>
+                RPU (Return Pickup) section mein return pickup se related
+                complete information available hoti hai.
+            </p>
+
+            <p><strong>Following details check karni hain:</strong></p>
+
+            <div class="steps">
+
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div>
+                        <strong>Pickup Failure Reason</strong>
+                        <p>Return pickup fail hone ka reason check karein.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div>
+                        <strong>Return Creation Reason</strong>
+                        <p>Return kis reason ke saath create kiya gaya hai.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div>
+                        <strong>Smart Check Failure</strong>
+                        <p>
+                            Smart Check Failure hua hai toh uska
+                            reason check karein.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div>
+                        <strong>Uploaded Images</strong>
+                        <p>
+                            Pickup se related uploaded images check karein.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">5</div>
+                    <div>
+                        <strong>Other Important Details</strong>
+                        <p>
+                            Return pickup ki other important details
+                            verify karein.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- SHORT FORMS -->
+
+        <section class="panel">
+
+            <div class="panel-head">
+                <h3>4. Important Short Forms / Codes</h3>
+                <span class="section-no">QUICK REFERENCE</span>
+            </div>
+
+            <div class="code-grid">
+
+                <div class="code-card">
+                    <strong>RLCW</strong>
+                    <p>Pickup Failed.</p>
+                </div>
+
+                <div class="code-card">
+                    <strong>C CAN</strong>
+                    <p>Customer Cancellation.</p>
+                </div>
+
+                <div class="code-card">
+                    <strong>APUC</strong>
+                    <p>
+                        Already Picked Up – Product already pickup ho
+                        chuka hai, lekin system mein status Pickup Failed
+                        show ho raha hai.
+                    </p>
+                </div>
+
+                <div class="code-card">
+                    <strong>RPI</strong>
+                    <p>Return Pickup Initiated.</p>
+                </div>
+
+                <div class="code-card">
+                    <strong>DSPD</strong>
+                    <p>Out for Pickup.</p>
+                </div>
+
+                <div class="code-card">
+                    <strong>CCA</strong>
+                    <p>
+                        CX Customer Complete Accepted – Customer is
+                        eligible to take a refund.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ALREADY PICKED UP -->
+
+        <section class="panel">
+
+            <div class="panel-head">
+                <h3>5. Special Case – Already Picked Up But Status Showing Failed</h3>
+                <span class="section-no">SPECIAL CASE</span>
+            </div>
+
+            <p>
+                Agar customer ka product already pickup ho chuka hai,
+                lekin system mein Pickup Failed show ho raha hai,
+                toh sabse pehle customer ka state check karna mandatory hai.
+            </p>
+
+            <div class="case-grid">
+
+                <div class="case-card">
+                    <h4>Rajasthan Customer</h4>
+                    <p>
+                        Customer ko guide karna hai ki woh apne
+                        Logistics Partner se coordinate karein.
+                    </p>
+                </div>
+
+                <div class="case-card">
+                    <h4>Other State Customers</h4>
+                    <p>
+                        Rajasthan ke alawa kisi bhi other state ke
+                        customer ko 72 hours wait karne ke liye guide
+                        karna hai.
+                    </p>
+                    <p>
+                        Team ki taraf se update provide kar diya jayega.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- NPR FORM -->
+
+        <section class="panel">
+
+            <div class="panel-head">
+                <h3>6. NPR Form Filling</h3>
+                <span class="section-no">FORM PROCESS</span>
+            </div>
+
+            <p>
+                NPR campaign mein customer ki concern aur RPU details
+                check karne ke baad NPR Form fill karna hota hai.
+            </p>
+
+            <div class="steps">
+
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div>
+                        <strong>Correct Options</strong>
+                        <p>
+                            Customer ki query ke according correct
+                            options select karein.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div>
+                        <strong>Information Verification</strong>
+                        <p>
+                            Available information verify karein.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div>
+                        <strong>Fill NPR Form</strong>
+                        <p>
+                            NPR Form properly fill karein.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ADDRESS CORRECTION -->
+
+        <section class="panel">
+
+            <div class="panel-head">
+                <h3>7. Address and Pincode Correction</h3>
+                <span class="section-no">RETURN PICKUP</span>
+            </div>
+
+            <p>
+                Return pickup create karte time customer ka:
+            </p>
+
+            <div class="case-grid">
+
+                <div class="case-card">
+                    <h4>Complete Address</h4>
+                    <p>
+                        Customer ka complete address change kar sakte hain.
+                    </p>
+                </div>
+
+                <div class="case-card">
+                    <h4>Pincode</h4>
+                    <p>
+                        Customer ka pincode bhi change kar sakte hain.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- REQUIRED IMAGES -->
+
+        <section class="panel">
+
+            <div class="panel-head">
+                <h3>8. Customer Se Required Images</h3>
+                <span class="section-no">DOCUMENTS</span>
+            </div>
+
+            <p>
+                Agar CX se images leni ho toh following images required hain:
+            </p>
+
+            <div class="steps">
+
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div>
+                        <strong>Invoice Images</strong>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div>
+                        <strong>Brand Packaging Images</strong>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div>
+                        <strong>Government-Issued ID Card</strong>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div>
+                        <strong>Undertaking Form</strong>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- RETURN ALLOWED DENIED -->
+
+        <section class="panel">
+
+            <div class="panel-head">
+                <h3>9. Return Creation – Allowed / Denied</h3>
+                <span class="section-no">CHECK BEFORE ACTION</span>
+            </div>
+
+            <p>
+                Jab bhi hum ticket par return create karne ke liye click
+                karte hain, toh screen ke bottom side se ek notification
+                / pop-up aata hai.
+            </p>
+
+            <p>Usmein do options show hote hain:</p>
+
+            <div class="case-grid">
+
+                <div class="case-card">
+                    <h4>ALLOWED (A)</h4>
+                    <p>
+                        Agar return creation allowed hai,
+                        toh return create karna hai.
+                    </p>
+                </div>
+
+                <div class="case-card">
+                    <h4>DENIED (D)</h4>
+                    <p>
+                        Agar return creation denied hai,
+                        toh return create nahi karna hai.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="note warning">
+                <strong>Mandatory:</strong>
+                Return create karne se pehle Allowed / Denied status
+                check karna compulsory hai.
+            </div>
+
+        </section>
+
+        <!-- TIMELINE -->
+
+        <section class="panel">
+
+            <div class="panel-head">
+                <h3>10. Return Reattempt Timeline</h3>
+                <span class="section-no">IMPORTANT</span>
+            </div>
+
+            <p>
+                Return pickup ke cases mein timeline depend karti hai ki
+                hum existing return reason se pickup reattempt kar rahe
+                hain ya new ticket create karke return bana rahe hain.
+            </p>
+
+            <div class="case-grid">
+
+                <div class="case-card">
+                    <h4>CASE 1: Same Return Reason</h4>
+
+                    <span class="badge">No New Ticket</span>
+
+                    <p>
+                        Agar product ka return same reason se dobara
+                        create / reattempt kar rahe hain aur koi new
+                        ticket raise nahi kar rahe hain, toh customer
+                        ko 2–3 days ki timeline deni hai.
+                    </p>
+
+                    <div class="quote">
+                        "Your return pickup will be reattempted
+                        within 2–3 days."
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <h4>CASE 2: New Ticket Creation</h4>
+
+                    <span class="badge">Different Product / Wrong Reason</span>
+
+                    <p>
+                        Agar customer ko different product receive hua
+                        hai ya existing return incorrect reason se create
+                        hua hai, toh new ticket create karna hai.
+                    </p>
+
+                    <p>
+                        New ticket ke through correct reason select
+                        karke return create karna hai.
+                    </p>
+
+                    <div class="quote">
+                        "We will try our best to get your product
+                        picked up within 24 hours."
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- KAPTURE TAGGING -->
+
+        <section class="panel">
+
+            <div class="panel-head">
+                <h3>11. Kapture Folder Selection and Disposition</h3>
+                <span class="section-no">TAGGING</span>
+            </div>
+
+            <p>
+                Jab new ticket create karte hain ya return-related
+                concern handle karte hain, toh Kapture mein correct
+                folder selection karna important hai.
+            </p>
+
+            <div class="path">
+                <span>Post Delivery</span>
+                <b>›</b>
+                <span>I Want to Return / Replace</span>
+                <b>›</b>
+                <span>CX Issue</span>
+                <b>›</b>
+                <span>Relevant CX Issue</span>
+            </div>
+
+            <p>
+                Customer ki actual concern aur RPU details ke according
+                correct reason select karna hai.
+            </p>
+
+            <div class="case-grid">
+
+                <div class="case-card">
+                    <h4>Other Reason</h4>
+                    <p>
+                        Customer ki concern ke according applicable
+                        CX Issue select karein.
+                    </p>
+                </div>
+
+                <div class="case-card">
+                    <h4>Smart Check Failure</h4>
+                    <p>
+                        Agar Smart Check Failure hai, toh uska
+                        relevant reason select karna hai.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="note info">
+                <strong>Kapture Disposition:</strong>
+                Awaiting Pickup
+            </div>
+
+        </section>
+
+        <!-- IMPORTANT POINTS -->
+
+        <section class="panel">
+
+            <div class="panel-head">
+                <h3>12. Important Points</h3>
+                <span class="section-no">QUICK REVISION</span>
+            </div>
+
+            <ul class="quick-list">
+                <li>NPR campaign means Return Pickup Failed.</li>
+                <li>Always check RPU details before proceeding.</li>
+                <li>Pickup failure reason verify karna mandatory hai.</li>
+                <li>Smart Check Failure details aur images check karni hain.</li>
+                <li>Already Picked Up cases mein customer ka state check karna compulsory hai.</li>
+                <li>Rajasthan customers ko Logistics Partner se coordinate karne ke liye guide karna hai.</li>
+                <li>Other state customers ko 72 hours wait karne ke liye guide karna hai.</li>
+                <li>Address aur Pincode correction possible hai during return pickup creation.</li>
+                <li>Return create karne se pehle Allowed / Denied status verify karna hai.</li>
+                <li>Same return reason without a new ticket: 2–3 days reattempt timeline.</li>
+                <li>Different product / incorrect return reason with a new ticket: 24 hours best-effort pickup timeline.</li>
+                <li>Correct Kapture folder and Pickup reason select karna mandatory hai.</li>
+                <li>Kapture Disposition: Awaiting Pickup.</li>
+            </ul>
+
+        </section>
+
+        <!-- FINAL CHECKLIST -->
+
+        <section class="panel">
+
+            <div class="panel-head">
+                <h3>13. Final Process Checklist</h3>
+                <span class="section-no">INTERACTIVE REVISION</span>
+            </div>
+
+            <p>
+                Process complete karne se pehle neeche diye gaye
+                saare points check karein:
+            </p>
+
+            <div class="checklist" id="revisionChecklist">
+
+                <label>
+                    <input type="checkbox">
+                    Ozonetel mein NPR campaign identify karna.
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Customer concern understand karna.
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Kapture mein concern copy aur tag karna.
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    RPU section open karna.
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Pickup failure reason check karna.
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Return reason aur Smart Check Failure details verify karna.
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Uploaded images check karna.
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Correct code / short form identify karna.
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Already Picked Up case mein customer state check karna.
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    NPR Form fill karna.
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Address / Pincode correction, if required.
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Undertaking Form and images collect karna, if required.
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Return creation se pehle Allowed / Denied status check karna.
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Same reason aur new ticket case ke according
+                    correct timeline share karna.
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Post Delivery → I Want to Return / Replace → CX Issue select karna.
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Pickup field mein correct reason select karna.
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Kapture Disposition – Awaiting Pickup select karna.
+                </label>
+
+            </div>
+
+            <div class="progress-wrap">
+                <div class="progress" id="checkProgress"></div>
+            </div>
+
+            <p id="progressText" aria-live="polite">
+                0 of 17 steps completed
+            </p>
+
+        </section>
+
+        <!-- FINAL REMINDER -->
+
+        <section class="panel">
+
+            <div class="panel-head">
+                <h3>14. Final Reminder</h3>
+                <span class="section-no">REMEMBER</span>
+            </div>
+
+            <div class="note warning">
+                Customer ko hamesha correct pickup timeline batani hai.
+                Return reason, ticket creation aur pickup status verify
+                karne ke baad hi correct action lena hai.
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<footer>
+    Snapdeal SOP Knowledge Hub | Internal Learning Portal
+</footer>
+
+<script>
+
+// CAMPAIGN SEARCH
+
+const campaignSearch = document.getElementById("campaignSearch");
+
+campaignSearch.addEventListener("input", function() {
+
+    const searchValue = this.value.toLowerCase();
+
+    const links = document.querySelectorAll(
+        "#campaignLinks a"
+    );
+
+    links.forEach(link => {
+
+        const text = link.textContent.toLowerCase();
+
+        link.style.display = text.includes(searchValue)
+            ? "flex"
+            : "none";
+
+    });
+
+});
+
+
+// CHECKLIST PROGRESS
+
+const checks = document.querySelectorAll(
+    "#revisionChecklist input"
+);
+
+checks.forEach(check => {
+
+    check.addEventListener("change", updateProgress);
+
+});
+
+function updateProgress() {
+
+    const completed = [...checks].filter(
+        check => check.checked
+    ).length;
+
+    const total = checks.length;
+
+    const percentage = (completed / total) * 100;
+
+    document.getElementById("checkProgress")
+        .style.width = percentage + "%";
+
+    document.getElementById("progressText").textContent =
+        completed + " of " + total + " steps completed";
+
+}
+
+</script>
+
+</body>
+</html>
