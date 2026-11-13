@@ -39,6 +39,7 @@ header p { font-size: 13px; margin-top: 5px; }
     display: flex;
     gap: 20px;
     padding: 20px;
+    align-items: flex-start;
 }
 
 /* SIDEBAR */
@@ -56,7 +57,6 @@ header p { font-size: 13px; margin-top: 5px; }
     color: #e40046;
 }
 
-/* CAMPAIGN LINKS */
 .campaign-btn {
     display: flex;
     justify-content: space-between;
@@ -80,7 +80,6 @@ header p { font-size: 13px; margin-top: 5px; }
     color: white;
 }
 
-/* OVS SUB CAMPAIGNS */
 .sub-campaigns {
     padding-left: 13px;
     margin-bottom: 10px;
@@ -93,7 +92,6 @@ header p { font-size: 13px; margin-top: 5px; }
     margin-bottom: 6px;
     border-left: 3px solid #e40046;
     background: #fff0f4;
-    cursor: pointer;
     border-radius: 4px;
     font-size: 13px;
     color: #333;
@@ -115,7 +113,7 @@ header p { font-size: 13px; margin-top: 5px; }
 }
 
 .page-heading {
-    margin-bottom: 25px;
+    margin-bottom: 22px;
 }
 
 .page-heading h1 {
@@ -126,12 +124,15 @@ header p { font-size: 13px; margin-top: 5px; }
 .page-heading p {
     color: #777;
     font-size: 14px;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 /* SEARCH */
 .search-box {
-    margin-bottom: 25px;
+    margin-bottom: 22px;
+    position: sticky;
+    top: 10px;
+    z-index: 5;
 }
 
 .search-box input {
@@ -142,6 +143,7 @@ header p { font-size: 13px; margin-top: 5px; }
     outline: none;
     font-size: 14px;
     background: white;
+    box-shadow: 0 2px 8px #00000008;
 }
 
 .search-box input:focus {
@@ -155,8 +157,8 @@ header p { font-size: 13px; margin-top: 5px; }
     border-radius: 10px;
     margin-bottom: 22px;
     box-shadow: 0 2px 10px #00000008;
-    scroll-margin-top: 85px;
     border: 1px solid #eee;
+    scroll-margin-top: 85px;
 }
 
 .section h2 {
@@ -165,6 +167,7 @@ header p { font-size: 13px; margin-top: 5px; }
     display: flex;
     align-items: center;
     gap: 10px;
+    line-height: 1.4;
 }
 
 .section h2 span {
@@ -172,12 +175,15 @@ header p { font-size: 13px; margin-top: 5px; }
     color: #e40046;
     padding: 9px;
     border-radius: 7px;
+    flex-shrink: 0;
 }
 
 /* TABLE */
 .table-wrapper {
     width: 100%;
     overflow-x: auto;
+    border: 1px solid #eee;
+    border-radius: 8px;
 }
 
 table {
@@ -194,14 +200,14 @@ th {
     color: #c9003e;
     font-size: 13px;
     text-align: left;
-    padding: 15px 12px;
+    padding: 14px 12px;
     border-bottom: 1px solid #f3d5df;
 }
 
 td {
     font-size: 13px;
     color: #444;
-    padding: 15px 12px;
+    padding: 13px 12px;
     border-bottom: 1px solid #eee;
     line-height: 1.6;
     vertical-align: top;
@@ -211,10 +217,14 @@ tbody tr:hover {
     background: #fff9fb;
 }
 
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
 td:first-child {
     font-weight: bold;
     color: #777;
-    width: 70px;
+    width: 55px;
 }
 
 .scenario {
@@ -223,11 +233,15 @@ td:first-child {
     min-width: 190px;
 }
 
+.sub-scenario {
+    min-width: 160px;
+}
+
 .tat {
-    color: #444;
     min-width: 250px;
 }
 
+/* TAT TAGS */
 .tag {
     display: inline-block;
     background: #fff0f4;
@@ -236,6 +250,7 @@ td:first-child {
     border-radius: 5px;
     font-size: 12px;
     font-weight: bold;
+    white-space: nowrap;
 }
 
 .tag.green {
@@ -248,6 +263,7 @@ td:first-child {
     color: #b66a00;
 }
 
+/* INFO BOX */
 .info-box {
     background: #fff7f9;
     border-left: 4px solid #e40046;
@@ -263,6 +279,7 @@ td:first-child {
     color: #e40046;
 }
 
+/* SEARCH RESULT */
 .no-result {
     display: none;
     background: white;
@@ -271,6 +288,7 @@ td:first-child {
     text-align: center;
     color: #888;
     margin-bottom: 20px;
+    border: 1px solid #eee;
 }
 
 /* FOOTER */
@@ -285,7 +303,6 @@ footer {
 
 /* MOBILE */
 @media(max-width: 768px) {
-
     .container {
         flex-direction: column;
     }
@@ -301,6 +318,7 @@ footer {
 
     .main {
         padding: 18px;
+        width: 100%;
     }
 
     .page-heading h1 {
@@ -309,6 +327,10 @@ footer {
 
     .section {
         padding: 16px;
+    }
+
+    .search-box {
+        position: static;
     }
 }
 </style>
@@ -331,55 +353,46 @@ footer {
     <aside class="sidebar">
 
         <h3>CAMPAIGNS</h3>
-          <a href="index.html" class="campaign-btn"><span>Dashboard</span><span>↗</span></a>
 
-        <!-- OVS -->
+        <a href="index.html" class="campaign-btn">
+            <span>Dashboard</span><span>↗</span>
+        </a>
+
         <a href="ovs.html" class="campaign-btn">
             <span>OVS (Order Verification System)</span>
             <span>↗</span>
         </a>
 
-        <!-- OVS SUB CAMPAIGNS -->
         <div class="sub-campaigns">
-
             <a href="bulk.html">A. Bulk</a>
-
             <a href="duplicate.html">B. Duplicate</a>
-
-            <a href="address-verification.html">
-                C. Address Verification
-            </a>
-
+            <a href="address-verification.html">C. Address Verification</a>
             <a href="rto-high.html">D. RTO High</a>
-
         </div>
 
-        <!-- OTHER CAMPAIGNS -->
-
         <a href="address-correction.html" class="campaign-btn">
-            <span>Address Correction</span>
-            <span>↗</span>
+            <span>Address Correction</span><span>↗</span>
         </a>
 
         <a href="ndr.html" class="campaign-btn">
-            <span>NDR</span>
-            <span>↗</span>
+            <span>NDR</span><span>↗</span>
         </a>
 
         <a href="npr.html" class="campaign-btn">
-            <span>NPR</span>
-            <span>↗</span>
+            <span>NPR</span><span>↗</span>
         </a>
 
         <a href="basic-knowledge.html" class="campaign-btn">
-            <span>Basic Knowledge</span>
-            <span>↗</span>
+            <span>Basic Knowledge</span><span>↗</span>
         </a>
 
         <a href="tat-guidelines.html" class="campaign-btn active">
-            <span>TAT Guidelines</span>
-            <span>↗</span>
+            <span>TAT Guidelines</span><span>↗</span>
         </a>
+            <a href="ovs-disposition.html" class="campaign-btn">
+    <span>OVS Disposition</span>
+    <span>↗</span>
+</a>
 
     </aside>
 
@@ -387,10 +400,11 @@ footer {
     <main class="main">
 
         <div class="page-heading">
-            <h1>TAT & Refund Guidelines</h1>
+            <h1>TAT & Process Guidelines</h1>
             <p>
-                Delivery timelines, pickup timelines, refund timelines
-                and APUC customer guidance.
+                Complete reference for order verification, delivery,
+                returns, cancellations, complaints, refunds and courier-related
+                scenarios with their respective TAT and customer guidance.
             </p>
         </div>
 
@@ -399,7 +413,7 @@ footer {
             <input
                 type="text"
                 id="searchInput"
-                placeholder="Search scenario, TAT, refund mode or customer guidance..."
+                placeholder="Search scenario, sub-scenario, TAT or action..."
                 onkeyup="searchContent()"
             >
         </div>
@@ -410,10 +424,9 @@ footer {
 
         <!-- SECTION 1 -->
         <section class="section searchable">
-
             <h2>
-                <span>🚚</span>
-                1. Delivery & Pickup TAT
+                <span>📋</span>
+                1. Verification & Order Lifecycle Scenarios
             </h2>
 
             <div class="table-wrapper">
@@ -422,95 +435,81 @@ footer {
                         <tr>
                             <th>Sr. No.</th>
                             <th>Scenario</th>
-                            <th>TAT / Customer Guidance</th>
+                            <th>Sub-Scenario</th>
+                            <th>TAT / Action</th>
                         </tr>
                     </thead>
-
                     <tbody>
-
                         <tr>
                             <td>1</td>
-                            <td class="scenario">
-                                Product Out for Delivery (NDR)
-                            </td>
-                            <td class="tat">
-                                Customer ko raat <span class="tag">9:00 PM</span>
-                                tak wait karne ke liye guide karein.
-                            </td>
+                            <td class="scenario">Pending For Verification</td>
+                            <td class="sub-scenario">Before 24 Hours</td>
+                            <td class="tat">Will verify from OVS Panel.</td>
                         </tr>
-
                         <tr>
                             <td>2</td>
-                            <td class="scenario">
-                                Product Out for Pickup (NPR)
-                            </td>
-                            <td class="tat">
-                                Customer ko shaam <span class="tag">6:00 PM</span>
-                                tak wait karne ke liye guide karein.
-                            </td>
+                            <td class="scenario">Pending For Verification</td>
+                            <td class="sub-scenario">After 24 Hours</td>
+                            <td class="tat">Will verify from OVS Panel.</td>
                         </tr>
-
                         <tr>
                             <td>3</td>
-                            <td class="scenario">
-                                CX Not Received Product but Marked as Delivered
-                            </td>
-                            <td class="tat">
-                                <b>Within 7 Days:</b> Customer ko inform karein
-                                ki team issue investigate karegi aur 7 days
-                                tak update provide karegi.
-                                <br><br>
-                                <b>After 7 Days:</b> Politely deny the request.
-                            </td>
+                            <td class="scenario">Within SLA</td>
+                            <td class="sub-scenario">Before Dispatch</td>
+                            <td class="tat">Share PDD.</td>
                         </tr>
-
                         <tr>
                             <td>4</td>
-                            <td class="scenario">
-                                Undelivered Order – Reschedule
-                            </td>
-                            <td class="tat">
-                                Rescheduled delivery ke liye
-                                <span class="tag">24 Hours</span> ka TAT.
-                            </td>
+                            <td class="scenario">Within SLA</td>
+                            <td class="sub-scenario">After Dispatch</td>
+                            <td class="tat">Share PDD, courier details and current location. Send AWB SMS.</td>
                         </tr>
-
                         <tr>
                             <td>5</td>
-                            <td class="scenario">
-                                Pickup Reschedule
-                            </td>
-                            <td class="tat">
-                                <b>Same Return Reason:</b>
-                                <span class="tag">2–3 Days</span>
-                                <br><br>
-                                <b>Fresh Pickup:</b>
-                                <span class="tag">24 Hours</span>
-                            </td>
+                            <td class="scenario">Specific Request</td>
+                            <td class="sub-scenario">Before Dispatch</td>
+                            <td class="tat">Share PDD.</td>
                         </tr>
-
                         <tr>
                             <td>6</td>
-                            <td class="scenario">
-                                Replacement TAT
-                            </td>
-                            <td class="tat">
-                                <span class="tag orange">Not Specified</span>
-                            </td>
+                            <td class="scenario">Specific Request</td>
+                            <td class="sub-scenario">After Dispatch</td>
+                            <td class="tat">Share PDD, courier details and current location.</td>
                         </tr>
-
+                        <tr>
+                            <td>7</td>
+                            <td class="scenario">Address Change</td>
+                            <td class="sub-scenario">Before Print Stage</td>
+                            <td class="tat">Share the changed address.</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td class="scenario">Address Change</td>
+                            <td class="sub-scenario">After Print Stage</td>
+                            <td class="tat">Ask the customer to coordinate with the courier if nearby.</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td class="scenario">Outside SLA</td>
+                            <td class="sub-scenario">Before Dispatch</td>
+                            <td class="tat">Raise a complaint. Team will provide an update.</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td class="scenario">Outside SLA</td>
+                            <td class="sub-scenario">After Dispatch</td>
+                            <td class="tat">Raise a complaint. Team will provide an update.</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
-
         </section>
 
         <!-- SECTION 2 -->
         <section class="section searchable">
-
             <h2>
-                <span>💰</span>
-                2. Refund TAT
+                <span>🚚</span>
+                2. Logistics & Delivery Exceptions (UD and OFD)
             </h2>
 
             <div class="table-wrapper">
@@ -518,72 +517,70 @@ footer {
                     <thead>
                         <tr>
                             <th>Sr. No.</th>
-                            <th>Refund Mode / Scenario</th>
-                            <th>TAT / Customer Guidance</th>
+                            <th>Scenario</th>
+                            <th>Sub-Scenario</th>
+                            <th>TAT / Action</th>
                         </tr>
                     </thead>
-
                     <tbody>
-
                         <tr>
                             <td>1</td>
-                            <td class="scenario">UPI</td>
-                            <td class="tat">
-                                <span class="tag">3–4 Days</span>
-                            </td>
+                            <td class="scenario">Out For Delivery</td>
+                            <td class="sub-scenario">NA</td>
+                            <td class="tat"><span class="tag">09:00 PM</span></td>
                         </tr>
-
                         <tr>
                             <td>2</td>
-                            <td class="scenario">Card Payments</td>
-                            <td class="tat">
-                                <span class="tag">7–10 Days</span>
-                            </td>
+                            <td class="scenario">UD (Undelivered)</td>
+                            <td class="sub-scenario">All UD Reasons</td>
+                            <td class="tat"><span class="tag">24 Hours</span> for re-attempt.</td>
                         </tr>
-
                         <tr>
                             <td>3</td>
-                            <td class="scenario">NEFT - Bank</td>
-                            <td class="tat">
-                                <span class="tag">5–7 Days</span>
-                            </td>
+                            <td class="scenario">OFD After UD</td>
+                            <td class="sub-scenario">NA</td>
+                            <td class="tat"><span class="tag">09:00 PM</span></td>
                         </tr>
-
                         <tr>
                             <td>4</td>
-                            <td class="scenario">
-                                RFV - Refund Voucher / Snapdeal Wallet / Credit
-                            </td>
-                            <td class="tat">
-                                Instant Refund / once pickup is successful.
-                            </td>
+                            <td class="scenario">RTO</td>
+                            <td class="sub-scenario">Payment Mode – COD</td>
+                            <td class="tat">NA</td>
                         </tr>
-
                         <tr>
                             <td>5</td>
-                            <td class="scenario">
-                                Customer Cancelled Product (Prepaid Order)
-                            </td>
-                            <td class="tat">
-                                Refund update 24–48 hours ke andar SMS ya
-                                WhatsApp ke through receive hoga.
-                                <br><br>
-                                <span class="tag">24–48 Hours</span>
-                            </td>
+                            <td class="scenario">RTO</td>
+                            <td class="sub-scenario">Payment Mode – Online</td>
+                            <td class="tat"><span class="tag">24–48 Hours</span></td>
                         </tr>
-
+                        <tr>
+                            <td>6</td>
+                            <td class="scenario">PDWP</td>
+                            <td class="sub-scenario">COD</td>
+                            <td class="tat">NA</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td class="scenario">PDWP</td>
+                            <td class="sub-scenario">Prepaid</td>
+                            <td class="tat"><span class="tag">7 Days</span></td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td class="scenario">PDWP</td>
+                            <td class="sub-scenario">RFV + COD</td>
+                            <td class="tat"><span class="tag">24–48 Hours</span> for update.</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
-
         </section>
 
         <!-- SECTION 3 -->
         <section class="section searchable">
-
             <h2>
-                <span>📦</span>
-                3. APUC – Already Picked Up but Status Showing Failed
+                <span>❌</span>
+                3. Cancellations & Refunds
             </h2>
 
             <div class="table-wrapper">
@@ -591,48 +588,459 @@ footer {
                     <thead>
                         <tr>
                             <th>Sr. No.</th>
-                            <th>Customer Location</th>
-                            <th>Action / TAT</th>
+                            <th>Scenario</th>
+                            <th>Sub-Scenario</th>
+                            <th>TAT / Action</th>
                         </tr>
                     </thead>
-
                     <tbody>
-
                         <tr>
                             <td>1</td>
-                            <td class="scenario">Rajasthan</td>
-                            <td class="tat">
-                                Customer ko courier partner se apne end par
-                                contact karne ke liye guide karein.
-                            </td>
+                            <td class="scenario">Why Was My Order Cancelled?</td>
+                            <td class="sub-scenario">COD</td>
+                            <td class="tat">Ask the customer to place a new order. If the customer agrees, place a new order through the CC Panel.</td>
                         </tr>
-
                         <tr>
                             <td>2</td>
-                            <td class="scenario">
-                                Rajasthan ke alawa Other States
-                            </td>
-                            <td class="tat">
-                                Customer ko status update ke liye
-                                <span class="tag">72 Hours</span>
-                                ki timeline dein.
-                            </td>
+                            <td class="scenario">Why Was My Order Cancelled?</td>
+                            <td class="sub-scenario">Prepaid</td>
+                            <td class="tat"><span class="tag">24–48 Hours</span> for refund initiation.</td>
                         </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="scenario">I Want to Cancel My Order</td>
+                            <td class="sub-scenario">Payment Mode – COD</td>
+                            <td class="tat">Doorstep refusal.</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="scenario">I Want to Cancel My Order</td>
+                            <td class="sub-scenario">Payment Mode – Online</td>
+                            <td class="tat"><span class="tag">6 Days</span> after the order is marked RTO/Cancelled.</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="scenario">Failed Transaction</td>
+                            <td class="sub-scenario">Within TAT</td>
+                            <td class="tat"><span class="tag">72 Hours</span> for auto reversal.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
+        <!-- SECTION 4 -->
+        <section class="section searchable">
+            <h2>
+                <span>📦</span>
+                4. Missing Items / Complaints
+            </h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Scenario</th>
+                            <th>Sub-Scenario / Status</th>
+                            <th>TAT / Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="scenario">Complete Item Missing</td>
+                            <td class="sub-scenario">Post 7 Days</td>
+                            <td class="tat">Share denial.</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="scenario">Complete Item Missing</td>
+                            <td class="sub-scenario">Complaint Within 7 Days, RPI = A (Approved)</td>
+                            <td class="tat"><span class="tag">24–48 Hours</span> for refund initiation.</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="scenario">Complete Item Missing</td>
+                            <td class="sub-scenario">RPI = D (Deny)</td>
+                            <td class="tat">Share denial.</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="scenario">Complete Item Missing</td>
+                            <td class="sub-scenario">RPI = N/A or Blank</td>
+                            <td class="tat"><span class="tag">24–48 Hours</span> for update.</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="scenario">Complete Item Missing</td>
+                            <td class="sub-scenario">Post 7 Days</td>
+                            <td class="tat">Share denial.</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td class="scenario">Complete Item Missing</td>
+                            <td class="sub-scenario">Complaint Within 7 Days, RPI = A (Approved)</td>
+                            <td class="tat">Ask for undertaking form.</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td class="scenario">Complete Item Missing</td>
+                            <td class="sub-scenario">RPI = D (Deny)</td>
+                            <td class="tat">Share denial.</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td class="scenario">Complete Item Missing</td>
+                            <td class="sub-scenario">RPI = N/A or Blank</td>
+                            <td class="tat"><span class="tag">24–48 Hours</span> for update.</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td class="scenario">One or More Items Missing (Shipped Together)</td>
+                            <td class="sub-scenario">Post 7 Days</td>
+                            <td class="tat">Share denial.</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td class="scenario">One or More Items Missing (Shipped Together)</td>
+                            <td class="sub-scenario">Complaint Within 7 Days, RPI = A (Approved)</td>
+                            <td class="tat"><span class="tag">24–48 Hours</span> for refund initiation.</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td class="scenario">One or More Items Missing (Shipped Together)</td>
+                            <td class="sub-scenario">RPI = D (Deny)</td>
+                            <td class="tat">Share denial.</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td class="scenario">One or More Items Missing (Shipped Together)</td>
+                            <td class="sub-scenario">RPI = N/A or Blank</td>
+                            <td class="tat"><span class="tag">24–48 Hours</span> for update.</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td class="scenario">One or More Items Missing (Shipped Together)</td>
+                            <td class="sub-scenario">Post 7 Days</td>
+                            <td class="tat">Share denial.</td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td class="scenario">One or More Items Missing (Shipped Together)</td>
+                            <td class="sub-scenario">Complaint Within 7 Days, RPI = A (Approved)</td>
+                            <td class="tat">Ask for undertaking form.</td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td class="scenario">One or More Items Missing (Shipped Together)</td>
+                            <td class="sub-scenario">RPI = D (Deny)</td>
+                            <td class="tat">Share denial.</td>
+                        </tr>
+                        <tr>
+                            <td>16</td>
+                            <td class="scenario">One or More Items Missing (Shipped Together)</td>
+                            <td class="sub-scenario">RPI = N/A or Blank</td>
+                            <td class="tat"><span class="tag">24–48 Hours</span> for update.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SECTION 5 -->
+        <section class="section searchable">
+            <h2>
+                <span>🔄</span>
+                5. Specialized Returns Scenarios
+            </h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Scenario</th>
+                            <th>Sub-Scenario / Issue</th>
+                            <th>TAT / Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="scenario">DTSS (Returnable)</td>
+                            <td class="sub-scenario">UD / RTO / Cancelled</td>
+                            <td class="tat">Ask for packing, invoice and product images. <span class="tag">24 Hours</span> post-images.</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="scenario">DTSS (Returnable)</td>
+                            <td class="sub-scenario">Delivered (DTSS OFD Stage)</td>
+                            <td class="tat">Ask for images. <span class="tag">24 Hours</span> post-images.</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="scenario">Fresh Complaint Raised</td>
+                            <td class="sub-scenario">RPU Not Initiated</td>
+                            <td class="tat"><span class="tag">24 Hours</span> for update.</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="scenario">Fresh Complaint Raised</td>
+                            <td class="sub-scenario">RPU Initiated, Pickup Partner Assigned</td>
+                            <td class="tat"><span class="tag">48 Hours</span> for pickup. Share partner name.</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="scenario">Fresh Complaint Raised</td>
+                            <td class="sub-scenario">RPU Manual Assigned</td>
+                            <td class="tat"><span class="tag">48 Hours</span> for update.</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td class="scenario">Fresh Complaint Raised</td>
+                            <td class="sub-scenario">RPU 48 Hours Breached, Product Not Picked</td>
+                            <td class="tat"><span class="tag">24 Hours</span> for update.</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td class="scenario">Out for Pickup</td>
+                            <td class="sub-scenario">First / 2nd / 3rd / 4th OFP</td>
+                            <td class="tat">Wait until <span class="tag">6:00 PM</span>. Share pickup partner name/number on call.</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td class="scenario">Pick Up Not Required</td>
+                            <td class="sub-scenario">NA</td>
+                            <td class="tat">NA</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td class="scenario">Pick Up Rescheduled</td>
+                            <td class="sub-scenario">NA</td>
+                            <td class="tat"><span class="tag">2–3 Days</span> for pickup.</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td class="scenario">APUC</td>
+                            <td class="sub-scenario">Other State Customer</td>
+                            <td class="tat"><span class="tag">72 Hours</span> for update.</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td class="scenario">APUC</td>
+                            <td class="sub-scenario">Rajasthan Customer</td>
+                            <td class="tat">Coordinate with pickup boy.</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td class="scenario">Multiple Suborder</td>
+                            <td class="sub-scenario">NA</td>
+                            <td class="tat"><span class="tag">24–48 Hours</span></td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td class="scenario">Replacement</td>
+                            <td class="sub-scenario">Replacement Request</td>
+                            <td class="tat"><span class="tag green">3–5 Days</span> for replacement.</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
 
             <div class="info-box">
                 <strong>Important:</strong>
-                APUC ka matlab Already Picked Up hai, lekin system mein
-                pickup status Failed show ho raha hai.
+                Replacement TAT is 3–5 days. Share the correct timeline with the customer.
             </div>
+        </section>
 
+        <!-- SECTION 6 -->
+        <section class="section searchable">
+            <h2>
+                <span>🧾</span>
+                6. Post-Cancellation / Return / Refund Workflows
+            </h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Scenario</th>
+                            <th>Sub-Scenario / Issue</th>
+                            <th>TAT / Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="scenario">CIP (Post-Cancellation)</td>
+                            <td class="sub-scenario">–</td>
+                            <td class="tat"><span class="tag">24–48 Hours</span> for update.</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="scenario">CIP (Post-Return)</td>
+                            <td class="sub-scenario">–</td>
+                            <td class="tat"><span class="tag">24–48 Hours</span> for update.</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="scenario">Refund</td>
+                            <td class="sub-scenario">Refund Initiated but Not Reflected (CIP Not Marked)</td>
+                            <td class="tat">Share the remaining TAT.</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="scenario">Refund</td>
+                            <td class="sub-scenario">Refund Not Initiated (XYZ Issue)</td>
+                            <td class="tat"><span class="tag">24–48 Hours</span> for update.</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="scenario">Refund</td>
+                            <td class="sub-scenario">Refund Initiated, TAT Breached, Customer Complaint</td>
+                            <td class="tat">Ask for bank statement in PDF format.</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td class="scenario">Refund Went on Hold</td>
+                            <td class="sub-scenario">Log a Call</td>
+                            <td class="tat"><span class="tag">5 Days</span></td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td class="scenario">Refund Went on Hold</td>
+                            <td class="sub-scenario">Refund "Unhold" Remarks</td>
+                            <td class="tat">Ask for UPI/bank details as per refund mode.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SECTION 7 -->
+        <section class="section searchable">
+            <h2>
+                <span>💰</span>
+                7. Refund Mode Timelines
+            </h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Refund Mode</th>
+                            <th>TAT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="scenario">UPI to UPI</td>
+                            <td class="tat"><span class="tag">3–4 Days</span></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="scenario">Credit/Debit Card to Credit/Debit Card</td>
+                            <td class="tat"><span class="tag">7–10 Working Days</span></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="scenario">COD to Snapdeal Credit (RFV)</td>
+                            <td class="tat"><span class="tag">Maximum 24 Hours</span></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="scenario">Snapdeal Credit (RFV) to Bank</td>
+                            <td class="tat"><span class="tag">8 Working Days</span></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="scenario">COD to Bank Refund (Online)</td>
+                            <td class="tat">Initiation: <span class="tag">24 Hours</span>, Reflection: <span class="tag">2 Hours</span></td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td class="scenario">COD to Bank Refund (Offline)</td>
+                            <td class="tat"><span class="tag">6 Days</span></td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td class="scenario">COD to UPI (Online)</td>
+                            <td class="tat">Initiation: <span class="tag">24 Hours</span>, instant reflection.</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td class="scenario">COD to UPI (Offline)</td>
+                            <td class="tat"><span class="tag">6 Days</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SECTION 8 -->
+        <section class="section searchable">
+            <h2>
+                <span>📞</span>
+                8. Courier, Vendor & Other Scenarios
+            </h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Scenario</th>
+                            <th>Sub-Scenario / Issue</th>
+                            <th>TAT / Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="scenario">PUC Marked</td>
+                            <td class="sub-scenario">Same Day</td>
+                            <td class="tat"><span class="tag">24 Hours</span></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="scenario">PUC Marked</td>
+                            <td class="sub-scenario">After 24 Hours</td>
+                            <td class="tat"><span class="tag">24–48 Hours</span></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="scenario">CCA Marked (Same Day)</td>
+                            <td class="sub-scenario">–</td>
+                            <td class="tat"><span class="tag">24 Hours</span></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="scenario">Courier Boy Extra Charge</td>
+                            <td class="sub-scenario">COD</td>
+                            <td class="tat"><span class="tag">24–48 Working Hours</span></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="scenario">Courier Boy Extra Charge</td>
+                            <td class="sub-scenario">Prepaid</td>
+                            <td class="tat">Ask for payment screenshot, if the customer has one.</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td class="scenario">Vendor Self</td>
+                            <td class="sub-scenario">Missing / Undelivered / Defective</td>
+                            <td class="tat"><span class="tag">24–48 Hours</span> for update.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 
     </main>
-
 </div>
 
 <!-- FOOTER -->
@@ -641,9 +1049,7 @@ footer {
 </footer>
 
 <script>
-
 function searchContent() {
-
     let input = document.getElementById("searchInput")
         .value.toLowerCase().trim();
 
@@ -651,7 +1057,6 @@ function searchContent() {
     let found = 0;
 
     sections.forEach(section => {
-
         let text = section.innerText.toLowerCase();
 
         if (text.includes(input)) {
@@ -660,13 +1065,11 @@ function searchContent() {
         } else {
             section.style.display = "none";
         }
-
     });
 
     document.getElementById("noResult").style.display =
         found === 0 ? "block" : "none";
 }
-
 </script>
 
 </body>

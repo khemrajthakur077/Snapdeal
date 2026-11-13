@@ -4,177 +4,502 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OVS - Seller RTO High</title>
+<title>Seller RTO High | Snapdeal SOP</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#f4f6fa;color:#263238}
-header{background:#e40046;color:white;padding:20px 30px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-header h1{font-size:25px}header p{font-size:13px;margin-top:5px}
-.container{display:flex;gap:20px;padding:20px}
-.sidebar{width:270px;background:white;padding:20px;border-radius:10px;height:fit-content;flex-shrink:0}
-.sidebar h3{color:#e40046;margin-bottom:15px}
-.campaign-btn{display:block;padding:13px;margin-bottom:8px;background:#f5f5f5;border-radius:6px;font-size:14px;font-weight:bold;color:#333;text-decoration:none}
-.campaign-btn:hover,.campaign-btn.active{background:#e40046;color:white}
-.sub-campaigns{padding-left:13px;margin-bottom:10px}
-.sub-campaigns a{display:block;padding:11px;margin-bottom:6px;background:#fff0f4;border-left:3px solid #e40046;border-radius:4px;font-size:13px;color:#333;text-decoration:none}
-.sub-campaigns a:hover,.sub-campaigns a.active{background:#e40046;color:white}
-.content{flex:1;background:white;padding:25px;border-radius:10px;min-width:0}
-.content h2{color:#e40046;margin-bottom:12px}
-.content p{line-height:1.7;margin:10px 0}
-.section{border:1px solid #eee;padding:20px;margin:18px 0;border-radius:8px}
-.section h3{color:#e40046;margin-bottom:12px}
-.section h4{margin:16px 0 8px}
-.section ul,.section ol{padding-left:24px;line-height:1.9}
-.note{background:#fff0f4;border-left:4px solid #e40046;padding:14px;margin-top:15px;line-height:1.7}
-.back{display:inline-block;color:#e40046;text-decoration:none;margin-bottom:18px;font-weight:bold}
-footer{background:#263238;color:white;text-align:center;padding:18px;margin-top:30px;font-size:13px}
-@media(max-width:768px){.container{flex-direction:column}.sidebar{width:100%}header{flex-direction:column;text-align:center}.content{padding:18px}}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f6fa;
+    color: #263238;
+}
+
+/* HEADER */
+header {
+    background: #e40046;
+    color: white;
+    padding: 22px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+header p {
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+.header-tag {
+    background: rgba(255,255,255,.16);
+    padding: 9px 13px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* MAIN CONTAINER */
+.container {
+    max-width: 1180px;
+    margin: 24px auto;
+    padding: 0 20px;
+}
+
+/* BACK TO DASHBOARD */
+.back-dashboard {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    color: #e40046;
+    padding: 10px 16px;
+    border: 1px solid #e40046;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    transition: .2s;
+    margin-bottom: 18px;
+}
+
+.back-dashboard:hover {
+    background: #e40046;
+    color: white;
+}
+
+/* BREADCRUMB */
+.breadcrumb {
+    font-size: 13px;
+    color: #77818a;
+    margin-bottom: 14px;
+}
+
+.breadcrumb strong {
+    color: #e40046;
+}
+
+/* INTRODUCTION */
+.hero {
+    background: white;
+    border-radius: 12px;
+    padding: 25px 26px;
+    margin-bottom: 18px;
+    border: 1px solid #edf0f3;
+    box-shadow: 0 3px 14px rgba(31,45,61,.04);
+}
+
+.eyebrow {
+    color: #e40046;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 9px;
+}
+
+h2 {
+    font-size: 23px;
+    color: #263238;
+    margin-bottom: 9px;
+}
+
+.intro {
+    color: #56616b;
+    line-height: 1.75;
+    font-size: 14px;
+}
+
+/* SECTIONS */
+.section {
+    background: white;
+    border: 1px solid #edf0f3;
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin: 17px 0;
+    box-shadow: 0 3px 14px rgba(31,45,61,.035);
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-bottom: 17px;
+}
+
+.number {
+    width: 31px;
+    height: 31px;
+    border-radius: 9px;
+    background: #fff0f4;
+    color: #e40046;
+    display: grid;
+    place-items: center;
+    font-weight: bold;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+h3 {
+    font-size: 17px;
+    color: #303b44;
+}
+
+/* TOOLS */
+.tool-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 13px;
+}
+
+.tool {
+    border: 1px solid #edf0f3;
+    border-radius: 10px;
+    padding: 17px;
+    background: #fff;
+    transition: .2s;
+}
+
+.tool:hover {
+    border-color: #e40046;
+    transform: translateY(-3px);
+}
+
+.tool-top {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 9px;
+}
+
+.tool-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    background: #fff0f4;
+    color: #e40046;
+    display: grid;
+    place-items: center;
+    font-weight: bold;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.tool h4 {
+    font-size: 15px;
+    color: #303b44;
+}
+
+.tool p {
+    font-size: 13px;
+    line-height: 1.65;
+    color: #59636c;
+}
+
+/* KAPTURE FOLDER PATH */
+.path {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.path span {
+    background: #fff0f4;
+    color: #a90035;
+    border: 1px solid #ffd5e1;
+    border-radius: 7px;
+    padding: 9px 12px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.path b {
+    color: #e40046;
+    font-size: 16px;
+}
+
+/* QUEUE AND DISPOSITION */
+.meta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
+}
+
+.meta {
+    border: 1px solid #edf0f3;
+    border-radius: 10px;
+    padding: 16px 18px;
+}
+
+.meta-label {
+    font-size: 11px;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+    color: #7b858e;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.meta-value {
+    font-size: 16px;
+    font-weight: bold;
+    color: #303b44;
+}
+
+/* STATUS */
+.status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #edf8f1;
+    color: #207044;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #27965a;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    color: #7a858e;
+    font-size: 12px;
+    padding: 22px;
+    margin-top: 15px;
+}
+
+/* RESPONSIVE DESIGN */
+@media(max-width:760px) {
+
+    header {
+        padding: 19px 20px;
+    }
+
+    .container {
+        padding: 0 13px;
+        margin: 16px auto;
+    }
+
+    .hero, .section {
+        padding: 19px;
+    }
+
+    .tool-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .meta-grid {
+        grid-template-columns: 1fr;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .path {
+        align-items: flex-start;
+    }
+}
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
-<div>
-<h1>SNAPDEAL SOP PORTAL</h1>
-<p>Standard Operating Procedures | Knowledge Hub</p>
-</div>
-<div>OVS - Seller RTO High</div>
+
+    <div>
+        <h1>SNAPDEAL SOP PORTAL</h1>
+        <p>Standard Operating Procedures | Knowledge Hub</p>
+    </div>
+
+    <div class="header-tag">
+        OVS · Order Verification System
+    </div>
+
 </header>
 
-<div class="container">
+<main class="container">
 
-<aside class="sidebar">
-<h3>CAMPAIGNS</h3>
-  <a href="index.html" class="campaign-btn"><span>Dashboard</span><span>↗</span></a>
+    <!-- BACK TO DASHBOARD -->
+    <a href="index.html" class="back-dashboard">
+        ← Back to Dashboard
+    </a>
 
-<a href="ovs.html" class="campaign-btn">OVS - Overall Details ↗</a>
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+        OVS / <strong>Seller RTO High</strong>
+    </div>
 
-<div class="sub-campaigns">
-<a href="bulk.html">A. Bulk</a>
-<a href="duplicate.html">B. Duplicate</a>
-<a href="address-verification.html">C. Address Verification</a>
-<a href="rto-high.html" class="active">D. Seller RTO High</a>
-</div>
+    <!-- INTRODUCTION -->
+    <section class="hero">
 
-<a href="address-correction.html" class="campaign-btn">Address Correction ↗</a>
-<a href="ndr.html" class="campaign-btn">NDR ↗</a>
-<a href="npr.html" class="campaign-btn">NPR ↗</a>
- <a href="basic-knowledge.html" class="campaign-btn">
-        <span>Basic Knowledge</span>
-        <span>↗</span>
-        </a>
+        <div class="eyebrow">
+            OVS Sub-Campaign
+        </div>
 
-       <a href="tat-guidelines.html" class="campaign-btn">
-        <span>TAT Guidelines</span>
-        <span>↗</span>
-        </a>
-</aside>
+        <h2>Seller RTO High Campaign</h2>
 
-<main class="content">
+        <p class="intro">
+            Seller RTO High Campaign ke under woh sabhi calls aati hain jo
+            un sellers ke orders se related hoti hain jinka RTO (Return to
+            Origin) rate high hota hai. Is process mein system ki taraf se
+            agent ko customer ki call connect hoti hai, jisme agent customer
+            se order confirm karta hai aur ensure karta hai ki customer ne
+            order place kiya hai aur woh order receive karna chahta hai.
+            Iska main objective RTO rate ko reduce karna aur successful
+            order delivery ensure karna hai.
+        </p>
 
-<a href="ovs.html" class="back">← Back to OVS</a>
+    </section>
 
-<h2>OVS - Seller RTO High</h2>
-<p><strong>Sub-Campaign Training Document</strong></p>
+    <!-- SECTION 1: TOOLS REQUIRED -->
+    <section class="section">
 
-<div class="section">
-<h3>1. Introduction to Seller RTO High</h3>
+        <div class="section-heading">
+            <div class="number">01</div>
+            <h3>Tools Required</h3>
+        </div>
 
-<p>
-Seller RTO High, OVS (Order Verification System)
-ka ek sub-campaign hai.
-</p>
+        <div class="tool-grid">
 
-<p>
-Iska main purpose high RTO-related orders ko verify karna hai.
-</p>
+            <!-- OZONETEL -->
+            <article class="tool">
 
-<div class="note">
-<strong>Main Purpose:</strong>
-High RTO-related orders ko verify karna.
-</div>
-</div>
+                <div class="tool-top">
+                    <div class="tool-icon">O</div>
+                    <h4>Ozonetel</h4>
+                </div>
 
-<div class="section">
-<h3>2. Tools / Panels Required</h3>
+                <p>
+                    Incoming/Outgoing calls handle karne ke liye.
+                </p>
 
-<h4>Ozonetel - Calling Tool</h4>
-<ul>
-<li>Incoming call receive karna.</li>
-<li>Order ID aur Sub Order ID identify karna.</li>
-<li>Campaign aur sub-campaign identify karna.</li>
-<li>Call ko Hold ya Disconnect karna.</li>
-</ul>
+            </article>
 
-<h4>OVS Panel - Order Verification</h4>
-<ul>
-<li>Ozonetel se Order ID copy karna.</li>
-<li>OVS panel mein Order ID enter karna.</li>
-<li>Customer ke order ki details check karna.</li>
-<li>Product details check karna.</li>
-<li>Applicable campaign ke according verification complete karna.</li>
-</ul>
+            <!-- OVS -->
+            <article class="tool">
 
-<h4>Kapture - Ticketing & Tagging Tool</h4>
-<ul>
-<li>Sub Order ID enter karna.</li>
-<li>Product information check karna.</li>
-<li>Customer concern ke according tagging karna.</li>
-<li>Appropriate disposition select karna.</li>
-<li>Ticket dispose karna.</li>
-</ul>
-</div>
+                <div class="tool-top">
+                    <div class="tool-icon">OVS</div>
+                    <h4>OVS (Order Verification System)</h4>
+                </div>
 
-<div class="section">
-<h3>3. Seller RTO High - Working Process</h3>
+                <p>
+                    Customer ke order details aur products verify karne ke liye.
+                </p>
 
-<ol>
-<li>Ozonetel par incoming call receive karein.</li>
-<li>Campaign name, Order ID aur Sub Order ID identify karein.</li>
-<li>Order ID copy karein.</li>
-<li>OVS panel open karke Order ID search karein.</li>
-<li>Customer ke order aur product details check karein.</li>
-<li>Seller RTO High campaign ke according order verify karein.</li>
-<li>Kapture mein Sub Order ID enter karein.</li>
-<li>Customer concern ke according appropriate ticket tagging karein.</li>
-<li>Correct disposition select karke ticket dispose karein.</li>
-</ol>
-</div>
+            </article>
 
-<div class="section">
-<h3>4. Important ID Information</h3>
+            <!-- KAPTURE -->
+            <article class="tool">
 
-<p><strong>Ozonetel:</strong> Order ID & Sub Order ID</p>
-<p><strong>OVS Panel:</strong> Order ID</p>
-<p><strong>Kapture:</strong> Sub Order ID</p>
-</div>
+                <div class="tool-top">
+                    <div class="tool-icon">K</div>
+                    <h4>Kapture</h4>
+                </div>
 
-<div class="section">
-<h3>5. Kapture Tagging & Disposition</h3>
+                <p>
+                    Customer interaction ki tagging aur disposition update karne ke liye.
+                </p>
 
-<p>
-<strong>Folder:</strong>
-Pre delivery &gt; Where is my order &gt;
-Order Varification Pending
-</p>
+            </article>
 
-<p><strong>Disposition:</strong> Closed</p>
-</div>
+        </div>
 
-<div class="note">
-<strong>Training Note:</strong>
-Provided document mein Seller RTO High ka purpose diya gaya hai.
-Specific RTO verification criteria, questions aur decision rules
-mention nahi hain.
-</div>
+    </section>
+
+    <!-- SECTION 2: KAPTURE FOLDER PATH -->
+    <section class="section">
+
+        <div class="section-heading">
+            <div class="number">02</div>
+            <h3>Kapture Folder Path</h3>
+        </div>
+
+        <div class="path">
+
+            <span>Pre Delivery</span>
+
+            <b>›</b>
+
+            <span>Where Is My Order</span>
+
+            <b>›</b>
+
+            <span>Order Verification Pending</span>
+
+        </div>
+
+    </section>
+
+    <!-- SECTION 3: QUEUE & DISPOSITION -->
+    <section class="section">
+
+        <div class="section-heading">
+            <div class="number">03</div>
+            <h3>Kapture Queue &amp; Disposition</h3>
+        </div>
+
+        <div class="meta-grid">
+
+            <!-- QUEUE -->
+            <div class="meta">
+
+                <div class="meta-label">
+                    Kapture Queue
+                </div>
+
+                <div class="meta-value">
+                    Pre Delivery
+                </div>
+
+            </div>
+
+            <!-- DISPOSITION -->
+            <div class="meta">
+
+                <div class="meta-label">
+                    Kapture Disposition
+                </div>
+
+                <div class="status">
+
+                    <span class="status-dot"></span>
+
+                    Closed
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
 
 </main>
-</div>
 
+<!-- FOOTER -->
 <footer>
-Snapdeal SOP Knowledge Hub | Internal Learning Portal
+    Snapdeal SOP Knowledge Hub | Internal Learning Portal
 </footer>
 
 </body>
